@@ -3,13 +3,13 @@ class Resources
     function this()
     {
         this._image = {
-            background  : Bitmap.fromFile("app://graphics/scene.png"),
-            grass       : Bitmap.fromFile("app://graphics/grass.png"),
-            tree        : Bitmap.fromFile("app://graphics/tree.png"),
-            bird        : Bitmap.fromFile("app://graphics/bird.png"),
-            box         : Bitmap.fromFile("app://graphics/box.png"),
-            close       : Bitmap.fromFile("app://graphics/ico-close.png"),
-            refresh     : Bitmap.fromFile("app://graphics/ico-refresh.png"),
+            background  : Bitmap.fromFile("app://gfx/scene.png"),
+            grass       : Bitmap.fromFile("app://gfx/grass.png"),
+            tree        : Bitmap.fromFile("app://gfx/tree.png"),
+            bird        : Bitmap.fromFile("app://gfx/bird.png"),
+            box         : Bitmap.fromFile("app://gfx/box.png"),
+            close       : Bitmap.fromFile("app://gfx/ico-close.png"),
+            refresh     : Bitmap.fromFile("app://gfx/ico-refresh.png"),
         }
 
         this._vector = {

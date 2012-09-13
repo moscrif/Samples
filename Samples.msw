@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" vertBodyHeight="799" horzMiddleBodyHeight="328" vertOutputWidth="960" name="Samples" outputDir="$(workspace_dir)/output" tag="0" signapp="false" showLeftPane="true" showRightPane="true" showBottomPane="true" selectedProject="/Users/oxy/Work/moscrif-samples/DemoSnake.msp" showalllibs="false" selectedResolution="/Applications/MoscrifIDE.app/Contents/Resources/cfg/displays/noskin_dvga.ini" selectedDevices="100">
+<Workspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" vertBodyHeight="372" horzMiddleBodyHeight="200" vertOutputWidth="683" name="samples" outputDir="$(workspace_dir)\output" tag="0" signapp="false" showLeftPane="true" showRightPane="true" showBottomPane="true" selectedProject="C:\Users\Palo\Documents\GitHub\samples\SampleFireABird.msp" showalllibs="false" selectedResolution="C:\MoscrifSDK\cfg\displays\noskin_dvga.ini" selectedDevices="100">
   <projects>
-    <project>./DemoBreakout.msp</project>
-    <project>./DemoMinesweeper.msp</project>
-    <project>./DemoPuzzle.msp</project>
-    <project>./DemoSnake.msp</project>
+    <project>.\DemoMinesweeper.msp</project>
+    <project>.\SampleFireABird.msp</project>
   </projects>
   <opened>
     <file>StartPage</file>
+    <file>C:\Users\Palo\Documents\GitHub\samples\SampleFireABird\gameScene.ms</file>
+    <file>C:\Users\Palo\Documents\GitHub\samples\SampleFireABird\main.ms</file>
+    <file>C:\Users\Palo\Documents\GitHub\samples\SampleFireABird.app</file>
+    <file>C:\Users\Palo\Documents\GitHub\samples\SampleFireABird\resources.ms</file>
   </opened>
 </Workspace>
