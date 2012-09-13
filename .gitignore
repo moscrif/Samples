@@ -19,3 +19,5 @@ ui
 *.ini
 *.ttf
 console.txt
+Samples.msw
+.gitignore
