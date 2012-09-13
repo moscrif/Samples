@@ -19,3 +19,4 @@ ui
 *.ini
 *.ttf
 console.txt
+.gitignore
