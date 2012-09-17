@@ -8,7 +8,7 @@ class GameScene : PhysicsScene
         // create physics world
         this.world = new b2World(0.0, 0.0, true, true);
         // this.world.setContinuousPhysics(false);
-        this.debugDraw = true;
+       // this.debugDraw = true;
         this._createBarriers();
         this._createHoles();
         this.debugDraw = true;
@@ -38,10 +38,15 @@ class GameScene : PhysicsScene
         while (current) {
             var bodyA = current.getBodyA();
             var bodyB = current.getBodyB();
-            if (bodyA.id == #hole)
-                bodyB.hide();
-            else if (bodyB.id == #hole)
-                bodyA.hide();
+            var x, y;
+            if (bodyA.id == #hole) {
+                (x, y) = bodyA.getPosition();
+                bodyB.hide(x, y);
+            }
+            else if (bodyB.id == #hole) {
+                (x, y) = bodyB.getPosition();
+                bodyA.hide(x, y);
+            }
             current = current.getNext();
         }
     }
@@ -120,15 +125,16 @@ class GameScene : PhysicsScene
             // set li near velocity to the ball
             this.whiteBall.setLinearVelocity(velox, veloy);
             this.ballsMoving = true;
-            this._control == #nothing;
+            this._control = #nothing;
+            this._forceBar.force = 0.0;
         }
 
     }
 
     function createWhiteBall()
     {
-        if (this.whiteBall) {
-            this.destroyBody(this._whiteBody);
+        if (this.whiteBall != null) {
+            this.destroyBody(this.whiteBall);
         }
         var shape = new b2CircleShape(res.number.ballRadius / this.scale);
         this.whiteBall = PhysicsSprite.create(this, res.images.sonicRoll, shape, #dynamic, 1.0, 0.0, 1.0, Ball);
@@ -306,6 +312,9 @@ class GameScene : PhysicsScene
         }
 
         super.draw(canvas);
+
+        // draw text
+        canvas.drawText(String.printf("FPS: %2.f", System.avgFPS), 50, 50, res.paint.textPaint);
     }
 
     function process()
@@ -329,13 +338,10 @@ class GameScene : PhysicsScene
         {
             for (var i in this super.balls)
                 this super.destroyBody(i);
-            console<<"0\n";
             this super.balls = new Array();
-            console<<"1\n";
-          //  this super.createWhiteBall();
-            console<<"2\n";
+            this super.createWhiteBall();
             this super._createBalls();
-            console<<"3\n";
+
         }
         this.add(this._refreshBttn);
     }

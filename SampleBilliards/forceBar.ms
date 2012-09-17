@@ -40,7 +40,7 @@ class ForceBar : Layer
     function draw(canvas)
     {
         // speed
-        canvas.drawText("speed up", 9*System.width / 10, System.height/2 - 165, res.paint.textPaint);
+        canvas.drawText("force up", System.width - res.number.barWidth / 2 - res.number.forceUpTextWidth / 2, System.height/2 - 165, res.paint.textPaint);
         canvas.drawCircle(System.width - res.number.barWidth / 2, System.height / 2 + 140, 6, this._paint);
         canvas.drawCircle(System.width - res.number.barWidth / 2, System.height / 2 + 121, 7, this._paint);
         canvas.drawCircle(System.width - res.number.barWidth / 2, System.height / 2 + 100, 8, this._paint);
@@ -53,6 +53,6 @@ class ForceBar : Layer
         canvas.drawCircle(System.width - res.number.barWidth / 2, System.height / 2 - 103, 15, this._paint);
         canvas.drawCircle(System.width - res.number.barWidth / 2, System.height / 2 - 140, 16, this._paint);
 
-        canvas.drawText("speed down", 9*System.width / 10, System.height/2 + 175, res.paint.textPaint);
+        canvas.drawText("force down", System.width - res.number.barWidth / 2 - res.number.forceDownTextWidth / 2, System.height/2 + 175, res.paint.textPaint);
     }
 }

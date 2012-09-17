@@ -23,7 +23,7 @@ class Resources
             tableDamping    : 0.8,
             minSpeed        : 0.01,
             maxForce        : 100.0,
-            hideAnimDuration: 1000,
+            hideAnimDuration: 1500,
         }
         // calculate other numbers
         this._number.tableWidth = System.width - this.number.barWidth - this.number.tableGap;
@@ -32,6 +32,10 @@ class Resources
             this._number.tableHeight = System.height - 2*this.number.tableGap;
             this._number.tableWidth = (1.0*this._number.tableHeight / this.number.tableRatio).toInteger();
         }
+        this._number.mantinel = this._number.tableHeight / 15;
+        this._number.ballRadius = this._number.mantinel/2;
+        this._number.holeRadius = 9*this._number.mantinel / 10;
+
         var tableCentre = this._number.tableGap + (System.width - this._number.barWidth - this._number.tableGap) / 2;
         this._number.tableLeft = tableCentre - this._number.tableWidth / 2;
         this._number.tableTop = System.height / 2 - this._number.tableHeight / 2;
@@ -67,7 +71,12 @@ class Resources
     function _createTextPaint()
     {
         var p = new Paint();
+        p.textSize = System.height / 35;
 
+        var (w, h) = p.measureText("force up");
+        this._number.forceUpTextWidth = w;
+        (w, h) = p.measureText("force down");
+        this._number.forceDownTextWidth = w;
         return p;
     }
 
