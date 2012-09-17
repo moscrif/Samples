@@ -290,7 +290,7 @@ class GameScene : PhysicsScene
     {
         canvas.clear(0xffffffff);
 
-        canvas.drawBitmapNine(res.image.table, res.number.tableLeft, res.number.tableTop, res.number.tableLeft + res.number.tableWidth, res.number.tableTop + res.number.tableHeight);
+        canvas.drawBitmapRect(res.image.table, 0, 0, res.image.table.width, res.image.table.height, res.number.tableLeft, res.number.tableTop, res.number.tableLeft + res.number.tableWidth, res.number.tableTop + res.number.tableHeight);
         if (!this.ballsMoving) {
             canvas.save();
             canvas.clipRect(res.number.tableLeft + res.number.mantinel, res.number.tableTop + res.number.mantinel, res.number.tableLeft + res.number.tableWidth - res.number.mantinel, res.number.tableTop + res.number.tableHeight-res.number.mantinel, #intersect );

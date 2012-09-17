@@ -32,7 +32,7 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="installLocation" value="internalOnly" />
-        <property name="permission" value="" />
+        <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
       </publishProperties>
       <includes>
         <fonts>

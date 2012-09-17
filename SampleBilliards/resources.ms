@@ -30,7 +30,7 @@ class Resources
         this._number.tableHeight = (1.0*this._number.tableWidth / this.number.tableRatio).toInteger();
         if (this._number.tableHeight > System.height - 2*this.number.tableGap) {
             this._number.tableHeight = System.height - 2*this.number.tableGap;
-            this._number.tableWidth = (1.0*this._number.tableHeight / this.number.tableRatio).toInteger();
+            this._number.tableWidth = (1.0*this._number.tableHeight * this.number.tableRatio).toInteger();
         }
         this._number.mantinel = this._number.tableHeight / 15;
         this._number.ballRadius = this._number.mantinel/2;

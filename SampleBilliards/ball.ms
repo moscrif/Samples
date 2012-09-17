@@ -86,8 +86,9 @@ class Ball : PhysicsSprite
 
         animator.addSubject(function(state) {           // state starts from 1.0 to 0.0
             this super.scale = state*1.0;
-            if (!this.destroyed)
+            if (!this.destroyed){
                 this super.setPosition(startX + (xMovement*(1-state)).toInteger(), startY + (yMovement*(1-state)).toInteger());
+            }
         });
         animator.onComplete = function()
         {
