@@ -19,4 +19,4 @@ ui
 *.ini
 *.ttf
 console.txt
-*.msw
+Samples.msw

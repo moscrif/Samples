@@ -17,6 +17,6 @@
        homepage: 
            uses: core ui uix uix-skin media sqlite net game2d crypto box2d graphics sensor
     orientation: landscape left
- remote-console: aaa
+ remote-console:
         version: 1.0
 >>>>>>> Testing.
