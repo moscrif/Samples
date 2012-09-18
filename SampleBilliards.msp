@@ -32,7 +32,11 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="installLocation" value="internalOnly" />
+<<<<<<< HEAD
         <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
+=======
+        <property name="permission" value="" />
+>>>>>>> Testing.
       </publishProperties>
       <includes>
         <fonts>
@@ -45,7 +49,11 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
+<<<<<<< HEAD
         <property name="codeSigningIdentity" value="" />
+=======
+        <property name="codeSigningIdentity" value="iPhone Distribution: Mothiva, s.r.o." />
+>>>>>>> Testing.
         <property name="supportedDevices" value="universal" />
         <property name="icon3gs" value="" />
         <property name="icon4+" value="" />

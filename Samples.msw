@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Workspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" vertBodyHeight="799" horzMiddleBodyHeight="328" vertOutputWidth="960" name="Samples" outputDir="$(workspace_dir)/output" tag="0" signapp="false" showLeftPane="true" showRightPane="true" showBottomPane="true" selectedProject="/Users/oxy/Work/moscrif-samples/DemoBreakout.msp" showalllibs="false" selectedResolution="/Applications/MoscrifIDE.app/Contents/Resources/cfg/displays/noskin_dvga.ini" selectedDevices="100">
+<Workspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" vertBodyHeight="591" horzMiddleBodyHeight="328" vertOutputWidth="960" name="Samples" outputDir="$(workspace_dir)/output" tag="0" signapp="false" showLeftPane="true" showRightPane="true" showBottomPane="true" selectedProject="/Users/oxy/Work/moscrif-samples/SampleBilliards.msp" showalllibs="false" selectedResolution="/Applications/MoscrifIDE.app/Contents/Resources/cfg/displays/noskin_dvga.ini" selectedDevices="150">
   <projects>
     <project>./DemoBreakout.msp</project>
     <project>./DemoMinesweeper.msp</project>
     <project>./DemoPuzzle.msp</project>
     <project>./DemoSnake.msp</project>
     <project>./SampleFireABird.msp</project>
+    <project>./SampleBilliards.msp</project>
   </projects>
   <opened>
     <file>StartPage</file>
+    <file>/Users/oxy/Work/moscrif-samples/SampleBilliards/ball.ms</file>
   </opened>
 </Workspace>
