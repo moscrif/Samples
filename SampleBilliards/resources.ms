@@ -19,7 +19,7 @@ class Resources
             ballRadius      : 20,
             ballX           : 6*System.width / 10,
             ballY           : System.height / 2,
-            lineLength      : System.width / 3,
+            lineLength      : System.width / 2,
             tableDamping    : 0.8,
             minSpeed        : 0.01,
             maxForce        : 100.0,

@@ -7,20 +7,17 @@ class GameScene : PhysicsScene
         this.whiteBall = null;
         // create physics world
         this.world = new b2World(0.0, 0.0, true, true);
-        // this.world.setContinuousPhysics(false);
-       // this.debugDraw = true;
         this._createBarriers();
         this._createHoles();
-        this.debugDraw = true;
         this._createBalls();
         this.createWhiteBall();
 
-        this._direction = null;
         this.angle = 0.0;
         this.ballsMoving = false;
         this._control = #nothing;
-        this._cuePosition = 40;
-
+        // gap between the ball and cue
+        this._cuePosition = 25;
+        // add layer with bar controling the hit force
         this._forceBar = new ForceBar({
             width   : System.width,
             height  : System.height,
@@ -36,9 +33,11 @@ class GameScene : PhysicsScene
     {
         var current = contact;
         while (current) {
+            // get both bodies in contact
             var bodyA = current.getBodyA();
             var bodyB = current.getBodyB();
             var x, y;
+            // hide ball if something hit the hole (the hole can hit only ball)
             if (bodyA.id == #hole) {
                 (x, y) = bodyA.getPosition();
                 bodyB.hide(x, y);
@@ -47,6 +46,7 @@ class GameScene : PhysicsScene
                 (x, y) = bodyB.getPosition();
                 bodyA.hide(x, y);
             }
+            // get next body
             current = current.getNext();
         }
     }
@@ -179,7 +179,7 @@ class GameScene : PhysicsScene
         hole.id = #hole;
 
         hole = this.addCircleBody(res.image.hole, #static, 0.0, 0.0, 0.0, 1);
-        hole.setPosition(res.number.tableLeft + res.number.tableWidth / 2, res.number.tableTop + res.number.mantinel);
+        hole.setPosition(res.number.tableLeft + res.number.tableWidth / 2, res.number.tableTop + res.number.mantinel - 2);
         hole.scale = 1.0*res.number.holeRadius / (res.image.hole.width / 2);
         hole.id = #hole;
 
@@ -195,7 +195,7 @@ class GameScene : PhysicsScene
         hole.id = #hole;
 
         hole = this.addCircleBody(res.image.hole, #static, 0.0, 0.0, 0.0, 1);
-        hole.setPosition(res.number.tableLeft + res.number.tableWidth / 2, res.number.tableTop + res.number.tableHeight - res.number.mantinel);
+        hole.setPosition(res.number.tableLeft + res.number.tableWidth / 2, res.number.tableTop + res.number.tableHeight - res.number.mantinel + 2);
         hole.scale = 1.0*res.number.holeRadius / (res.image.hole.width / 2);
         hole.id = #hole;
 
@@ -288,13 +288,14 @@ class GameScene : PhysicsScene
 
     function draw(canvas)
     {
-        canvas.clear(0xffffffff);
+        canvas.clear(0xffaaaaaa);
 
         canvas.drawBitmapRect(res.image.table, 0, 0, res.image.table.width, res.image.table.height, res.number.tableLeft, res.number.tableTop, res.number.tableLeft + res.number.tableWidth, res.number.tableTop + res.number.tableHeight);
+        var (x, y);
         if (!this.ballsMoving) {
             canvas.save();
             canvas.clipRect(res.number.tableLeft + res.number.mantinel, res.number.tableTop + res.number.mantinel, res.number.tableLeft + res.number.tableWidth - res.number.mantinel, res.number.tableTop + res.number.tableHeight-res.number.mantinel, #intersect );
-            var (x, y) = this.whiteBall.getPosition();
+            (x, y) = this.whiteBall.getPosition();
             x = x.toInteger();
             y = y.toInteger();
             canvas.translate(x, y);
@@ -302,7 +303,13 @@ class GameScene : PhysicsScene
     
             canvas.drawLine(0, 0, 0, res.number.lineLength, res.paint.line);
             canvas.restore();
-    
+        }
+        super.draw(canvas);
+
+        if (!this.ballsMoving) {
+            (x, y) = this.whiteBall.getPosition();
+            x = x.toInteger();
+            y = y.toInteger();
             canvas.save();
             canvas.translate(x, y);
             canvas.rotate(this.angle*180.0/Math.PI);
@@ -310,8 +317,6 @@ class GameScene : PhysicsScene
             canvas.drawBitmap(res.image.cue, -1*res.image.cue.width - this._cuePosition, res.image.cue.height / -2);
             canvas.restore();
         }
-
-        super.draw(canvas);
 
         // draw text
         canvas.drawText(String.printf("FPS: %2.f", System.avgFPS), 50, 50, res.paint.textPaint);
