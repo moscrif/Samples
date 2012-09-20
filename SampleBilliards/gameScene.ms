@@ -11,8 +11,7 @@ class GameScene : PhysicsScene
         this._createHoles();
         this._createBalls();
         this.createWhiteBall();
-        this.debugDraw = true;
-
+        
         this.angle = 0.0;
         this.ballsMoving = false;
         this._control = #nothing;
@@ -118,9 +117,9 @@ class GameScene : PhysicsScene
     function _createBalls()
     {
         this.balls = new Array();
-
+    
         var gap = Math.sqrt((res.number.ballRadius*res.number.ballRadius)/2);
-
+    
         var shape = new b2CircleShape(res.number.ballRadius / this.scale);
         var ball = 0;
         var number = 0;
@@ -185,7 +184,7 @@ class GameScene : PhysicsScene
             {x: res.number.tableWidth / 4 - res.number.holeRadius, y : res.number.mantinel / -2 },
             {x: res.number.tableWidth / 4, y : res.number.mantinel / 2},
         ];
-
+    
         this.addPolygonBody(null, #static, 1.0, 0.0, 1.0, shape).setPosition(res.number.tableLeft + res.number.tableWidth / 4, res.number.tableTop + res.number.mantinel / 2);
         shape = [
             {x: res.number.tableWidth / -4, y : res.number.mantinel / 2 },
@@ -194,7 +193,7 @@ class GameScene : PhysicsScene
             {x: res.number.tableWidth / 4 - res.number.holeRadius, y : res.number.mantinel / 2},
         ];
         this.addPolygonBody(null, #static, 1.0, 0.0, 1.0, shape).setPosition(res.number.tableLeft + 3*res.number.tableWidth / 4, res.number.tableTop + res.number.mantinel / 2);
-
+    
         // bottom
         shape = [
             {x: res.number.tableWidth / -4 + res.number.holeRadius + res.number.mantinel, y : res.number.mantinel / 2 },
@@ -202,7 +201,7 @@ class GameScene : PhysicsScene
             {x: res.number.tableWidth / 4 , y : res.number.mantinel / -2 },
             {x: res.number.tableWidth / 4 - res.number.holeRadius, y : res.number.mantinel / 2 },
         ];
-
+    
         this.addPolygonBody(null, #static, 1.0, 0.0, 1.0, shape).setPosition(res.number.tableLeft + res.number.tableWidth / 4, res.number.tableTop - res.number.mantinel / 2 + res.number.tableHeight);
         shape = [
             {x: res.number.tableWidth / -4 + res.number.holeRadius, y : res.number.mantinel / 2 },
@@ -211,7 +210,7 @@ class GameScene : PhysicsScene
             {x: res.number.tableWidth / 4 - res.number.holeRadius - res.number.mantinel, y : res.number.mantinel / 2 },
         ];
         this.addPolygonBody(null, #static, 1.0, 0.0, 1.0, shape).setPosition(res.number.tableLeft + 3*res.number.tableWidth / 4, res.number.tableTop - res.number.mantinel / 2 + res.number.tableHeight);
-
+    
         // left
         shape = [
             {x: res.number.mantinel / -2, y : res.number.tableHeight / 2 - res.number.holeRadius},
@@ -220,7 +219,7 @@ class GameScene : PhysicsScene
             {x: res.number.mantinel / 2, y : res.number.tableHeight / 2 - res.number.mantinel - res.number.holeRadius},
         ];
         this.addPolygonBody(null, #static, 1.0, 0.0, 1.0, shape).setPosition(res.number.tableLeft + res.number.mantinel / 2, System.height / 2);
-
+    
         // right
         shape = [
             {x: res.number.mantinel / -2, y : res.number.tableHeight / 2 - res.number.holeRadius - res.number.mantinel},

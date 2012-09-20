@@ -74,7 +74,7 @@ class ForceBar : Layer
             // linear velocity on x and y axis
             var velox = force*Math.cos(game.table.angle)/this.scale;
             var veloy =-force*Math.sin(game.table.angle)/this.scale;
-
+    
             // set linear velocity to the ball
             game.table.whiteBall.setLinearVelocity(velox, veloy);
             game.table.ballsMoving = true;
