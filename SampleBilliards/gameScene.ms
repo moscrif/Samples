@@ -11,6 +11,7 @@ class GameScene : PhysicsScene
         this._createHoles();
         this._createBalls();
         this.createWhiteBall();
+        this.debugDraw = true;
 
         this.angle = 0.0;
         this.ballsMoving = false;
@@ -51,39 +52,26 @@ class GameScene : PhysicsScene
         }
     }
 
-    function pointerPressed(x, y, pointer)
+    function pointerPressed(x, y)
     {
         super.pointerPressed(x, y);
-
+        // if some ball is moving do nothing
         if(this.ballsMoving)
             return;
-
+    
         if (x<System.width - res.number.barWidth) {
-            // compute actual distance from start position
+            // compute actual distance from the white ball
             var (ballX, ballY) = this.whiteBall.getPosition();
             var distanceX = x - ballX;
             var distanceY = y - ballY;
-    
+            // calculate angle
             this.angle=Math.atan2(distanceY, distanceX);
-            this._direction = {
-                x   : x,
-                y   : y,
-            }
+    
             this._control = #angle;
-        } else {
-            var force = (y - (System.height / 2 - 140.0)) / 280;
-            if (force < 0)
-                force = 0.0;
-            else if (force > 1.0)
-                force = 1.0;
-            force = 1-force;
-            this._forceBar.force = force;
-
-            this._control = #power;
         }
     }
 
-    function pointerDragged(x, y, pointer)
+    function pointerDragged(x, y)
     {
         super.pointerDragged(x, y);
         if(this.ballsMoving)
@@ -99,36 +87,18 @@ class GameScene : PhysicsScene
                 x   : x,
                 y   : y,
             }
-        } else if (this._control == #power) {
-            var force = (y - (System.height / 2 - 140.0)) / 280;
-            if (force < 0)
-                force = 0.0;
-            else if (force > 1.0)
-                force = 1.0;
-            force = 1-force;
-            this._forceBar.force = force;
         }
     }
 
-    function pointerReleased(x, y, pointer)
+    function pointerReleased(x, y)
     {
         super.pointerReleased(x, y);
         if(this.ballsMoving)
             return;
 
         if (this._control == #angle) {
-
-        } else if (this._control == #power) {
-            var force = this._forceBar.force * res.number.maxForce;
-            var velox = force*Math.cos(this.angle)*20/this.scale;
-            var veloy=-force*Math.sin(this.angle)*20/this.scale;
-            // set li near velocity to the ball
-            this.whiteBall.setLinearVelocity(velox, veloy);
-            this.ballsMoving = true;
             this._control = #nothing;
-            this._forceBar.force = 0.0;
         }
-
     }
 
     function createWhiteBall()
@@ -289,11 +259,13 @@ class GameScene : PhysicsScene
     function draw(canvas)
     {
         canvas.clear(0xffaaaaaa);
-
+    
         canvas.drawBitmapRect(res.image.table, 0, 0, res.image.table.width, res.image.table.height, res.number.tableLeft, res.number.tableTop, res.number.tableLeft + res.number.tableWidth, res.number.tableTop + res.number.tableHeight);
         var (x, y);
         if (!this.ballsMoving) {
+            // save canvas without transalation
             canvas.save();
+            // restirct the drawing area
             canvas.clipRect(res.number.tableLeft + res.number.mantinel, res.number.tableTop + res.number.mantinel, res.number.tableLeft + res.number.tableWidth - res.number.mantinel, res.number.tableTop + res.number.tableHeight-res.number.mantinel, #intersect );
             (x, y) = this.whiteBall.getPosition();
             x = x.toInteger();
@@ -302,23 +274,28 @@ class GameScene : PhysicsScene
             canvas.rotate(this.angle*180.0/Math.PI - 90);
     
             canvas.drawLine(0, 0, 0, res.number.lineLength, res.paint.line);
+            // restore saved canvas
             canvas.restore();
         }
+        // draw box2d world
         super.draw(canvas);
-
+    
         if (!this.ballsMoving) {
             (x, y) = this.whiteBall.getPosition();
             x = x.toInteger();
             y = y.toInteger();
+            // save canvas without transalation
             canvas.save();
+            // move and rotate canvas
             canvas.translate(x, y);
             canvas.rotate(this.angle*180.0/Math.PI);
-    
+            // draw cue
             canvas.drawBitmap(res.image.cue, -1*res.image.cue.width - this._cuePosition, res.image.cue.height / -2);
+            // restore saved canvas
             canvas.restore();
         }
-
-        // draw text
+    
+        // draw FPS
         canvas.drawText(String.printf("FPS: %2.f", System.avgFPS), 50, 50, res.paint.textPaint);
     }
 

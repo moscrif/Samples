@@ -6,6 +6,8 @@ class ForceBar : Layer
 
         this._paint = new Paint();
         this._force = 0.0;
+
+        this._control = #nothing;
     }
 
     property force(v)
@@ -36,6 +38,50 @@ class ForceBar : Layer
         var pos = new Array(0.0, 0.5, 1.0);
         return Shader.linear(pts, clrs, pos, 0);
     };
+
+    function pointerPressed(x, y)
+    {
+        if (x>System.width - res.number.barWidth) {
+            var force = (y - (System.height / 2 - 140.0)) / 280;
+            if (force < 0)
+                force = 0.0;
+            else if (force > 1.0)
+                force = 1.0;
+            force = 1-force;
+            this.force = force;
+
+            this._control = #power;
+        }
+    }
+
+    function pointerDragged(x, y) {
+         if (this._control == #power) {
+            var force = (y - (System.height / 2 - 140.0)) / 280;
+            if (force < 0)
+                force = 0.0;
+            else if (force > 1.0)
+                force = 1.0;
+            force = 1-force;
+            this.force = force;
+        }
+    }
+
+    function pointerReleased(x, y)
+    {
+        if (this._control == #power) {
+            // this.force -> from 0.0 to 1.0
+            var force = this.force * res.number.maxForce;
+            // linear velocity on x and y axis
+            var velox = force*Math.cos(game.table.angle)/this.scale;
+            var veloy =-force*Math.sin(game.table.angle)/this.scale;
+
+            // set linear velocity to the ball
+            game.table.whiteBall.setLinearVelocity(velox, veloy);
+            game.table.ballsMoving = true;
+            this._control = #nothing;
+            this.force = 0.0;
+        }
+    }
 
     function draw(canvas)
     {

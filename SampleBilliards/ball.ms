@@ -69,8 +69,10 @@ class Ball : PhysicsSprite
         var t = new Timer(1, 1);
         t.onTick = function()
         {
-            if (this super.active)
+            if (this super.active) {
                 this super.active = false;
+                this super.setLinearVelocity(0.0, 0.0);
+            }
         }
         t.start(1);
 
@@ -86,13 +88,13 @@ class Ball : PhysicsSprite
 
         animator.addSubject(function(state) {           // state starts from 1.0 to 0.0
             this super.scale = state*1.0;
-            if (!this.destroyed){
+            if (!this super.destroyed){
                 this super.setPosition(startX + (xMovement*(1-state)).toInteger(), startY + (yMovement*(1-state)).toInteger());
             }
         });
         animator.onComplete = function()
         {
-            this.destroyed = true;
+            this super.destroyed = true;
             game.table.destroyBody(this super);
             if (this super.id == #whiteBall)
                 game.table.createWhiteBall();

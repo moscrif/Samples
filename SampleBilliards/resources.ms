@@ -17,12 +17,12 @@ class Resources
             mantinel        : 35,
             holeRadius      : 38,
             ballRadius      : 20,
-            ballX           : 6*System.width / 10,
+            ballX           : 7*System.width / 10,
             ballY           : System.height / 2,
             lineLength      : System.width / 2,
             tableDamping    : 0.8,
             minSpeed        : 0.01,
-            maxForce        : 100.0,
+            maxForce        : 20.0 * (System.width / 1280.0),
             hideAnimDuration: 1500,
         }
         // calculate other numbers
