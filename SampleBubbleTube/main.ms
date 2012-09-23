@@ -15,7 +15,7 @@ game.onStart = function()
     this.push(new SensorScene());
 }
 
-game.onKeyPressed = function(sender, keyCode)
+game.onKeyPressed = function(keyCode)
 {
     if (keyCode == #back || keyCode == #menu)
         game.quit();
