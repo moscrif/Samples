@@ -18,6 +18,7 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="" />
+        <property name="bundleIdentifier" value="com.Moscrif.Puzzle" />
       </publishProperties>
       <includes>
         <fonts />
@@ -35,6 +36,7 @@
         <property name="installLocation" value="preferExternal" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="" />
+        <property name="bundleIdentifier" value="com.Moscrif.Puzzle" />
       </publishProperties>
       <includes>
         <fonts />
@@ -45,7 +47,7 @@
       <publishProperties>
         <property name="icon" />
         <property name="splash" />
-        <property name="codeSigningIdentity" value="iPhone Distribution: Mothiva, s.r.o." />
+        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (6KCC35DH5Y)" />
         <property name="supportedDevices" value="universal" />
         <property name="icon3gs" value="" />
         <property name="icon4+" value="$(project_dir)\platforms\icons\Icon-114.png" />
@@ -54,6 +56,14 @@
         <property name="splash4+" value="" />
         <property name="splashTablet" value="" />
         <property name="bundleIdentifier" value="com.mothiva.puzzle" />
+        <property name="iPhone4-icon" value="" />
+        <property name="iPhone4-splash" value="" />
+        <property name="iPhone5-icon" value="" />
+        <property name="iPhone5-splash" value="" />
+        <property name="iPad-icon" value="/Users/oxy/Work/moscrif-samples/DemoPuzzle/platforms/icons/Icon-72.png" />
+        <property name="iPad-splash" value="" />
+        <property name="newiPad-icon" value="" />
+        <property name="newiPad-splash" value="" />
       </publishProperties>
       <includes>
         <fonts />

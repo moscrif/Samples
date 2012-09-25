@@ -14,11 +14,10 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SampleBubbleTube" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freemono-i.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="metro" theme="blue" />
       </includes>
     </device>
@@ -33,11 +32,10 @@
         <property name="supportedDevices" value="universal" />
         <property name="installLocation" value="preferExternal" />
         <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SampleBubbleTube" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-b.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="metro" theme="blue" />
       </includes>
     </device>
@@ -45,7 +43,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="codeSigningIdentity" value="" />
+        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (ENR9MZF3YM)" />
         <property name="supportedDevices" value="universal" />
         <property name="icon3gs" value="" />
         <property name="icon4+" value="" />
