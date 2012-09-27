@@ -92,9 +92,7 @@ class Player : Sprite
         var index = this.tiled.getCell(x/this.tiled.tileWidth, y/this.tiled.tileHeight);
         switch (index) {
             case 7:
-                System.messageBox("A shark ate you!!! ");
-                game.quit();
-                return;
+                this.level.add(new Message({text: "A shark ate you!!!", scene : this.level}));
                 break;
             case 9:
                 this.level.nextLevel();

@@ -10,7 +10,7 @@ class Level6 : Level
 
     function nextLevel()
     {
-        System.messageBox("Finish");
+        this.add(new Message({text: "A shark ate you!!!", scene : this}));
     }
 
    function createEnemies()

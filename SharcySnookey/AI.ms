@@ -49,8 +49,7 @@ class AI : Player
         var dy = y - this.level._player.y;
         var distance = Math.sqrt(dx*dx + dy*dy);
         if (distance < 50) {
-            System.messageBox("An enemy ate you :)");
-            game.quit();
+            this.level.add(new Message({text: "A shark ate you!!!", scene : this.level}));
         }
     }
 }

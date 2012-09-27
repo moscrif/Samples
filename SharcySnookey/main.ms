@@ -1,6 +1,7 @@
 include "lib://game2d/game.ms"
 include "lib://game2d/scene.ms"
 include "lib://game2d/tiledLayer.ms"
+include "lib://game2d/layer.ms"
 
 include "app://level.ms"
 include "app://levels/level1.ms"
@@ -11,6 +12,7 @@ include "app://levels/level5.ms"
 include "app://levels/level6.ms"
 include "app://player.ms"
 include "app://AI.ms"
+include "app://message.ms"
 // include level arrays
 include "app://levels.ms"
 
