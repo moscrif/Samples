@@ -1,20 +1,38 @@
-class Player : Sprite
+class Player
 {
-    function init()
+    function this()
     {
-        super.init();
-        // load image
-        this.image = Bitmap.fromFile("app://player.png");
-        // size of one frame
-        this.frameWidth = 40;
-        this.frameHeight = 40;
-        // move vector
+        this._row = 0;
+        this._column = 0;
         this.moveX = 0;
         this.moveY = 0;
+
         // create timer
         this._createTimer();
         this.tiled = null;
         this.level = null;
+
+        this.index = 30;
+    }
+
+    property row(v)
+    {
+        get return this._row;
+        set {
+            this._row = v;
+            if (this.canMove(this.column, this.row))
+                this.move(this.column, this.row);
+        }
+    }
+
+    property column(v)
+    {
+        get return this._column;
+        set {
+            this._column = v;
+            if (this.canMove(this.column, this.row))
+                this.move(this.column, this.row);
+        }
     }
 
     property direction(v)
@@ -23,11 +41,11 @@ class Player : Sprite
             // set draw sequence and move constant on the base direction property
             switch(v)
             {
-                case #down:     this.sequence = [0];    this.moveX = 0;     this.moveY = 4;  break;
-                case #left:     this.sequence = [1];    this.moveX = -4;    this.moveY = 0;  break;
-                case #right:    this.sequence = [2];    this.moveX = 4;     this.moveY = 0;  break;
-                case #up:       this.sequence = [3];  this.moveX = 0;     this.moveY = -4; break;
-                case #stop:                                 this.moveX = 0;     this.moveY = 0;  break;
+                case #down:     this.index = 30;    this.moveX = 0;     this.moveY = 1;  break;
+                case #left:     this.index = 32;    this.moveX = -1;    this.moveY = 0;  break;
+                case #right:    this.index = 33;    this.moveX = 1;     this.moveY = 0;  break;
+                case #up:       this.index = 31;    this.moveX = 0;     this.moveY = -1; break;
+                case #stop:     this.moveX = 0;     this.moveY = 0;     break;
             }
         }
     }
@@ -35,66 +53,69 @@ class Player : Sprite
     function _createTimer()
     {
         // create timer (interval, repeat)
-        var timer = new Timer(10, true);
-        timer.onTick = function(sender)
+        this.timer = new Timer(100, true);
+        this.timer.onTick = function(sender)
         {
             var self = this super;
             // check if character is moving
-            if (self.moveX || self.moveY)
-                self.nextFrame();
             // check if on next position is some barrier
-            if (self.canMove(self.x+self.moveX, self.y+self.moveY)) {
-                self.x += self.moveX;
-                self.y += self.moveY;
+            if (self.canMove(self.column+self.moveX, self.row+self.moveY)) {
                 // fire event onMove
-                self.onMove(self.x, self.y);
+                self.move(self.column+self.moveX, self.row+self.moveY);
             }
         }
         // start timer with 0 ms delay
-        timer.start(0);
+        this.timer.start(0);
     }
 
-   function canMove(x, y)
+    function canMove(x, y)
     {
 
-        x += this.tiled.viewX;
-        y += this.tiled.viewY;
-
-        var index = this.tiled.getCell(x/this.tiled.tileWidth, (y + 15)/this.tiled.tileHeight);
+        var index = this.tiled.getCell(x, y);
         // if index of image is wall, character cant move
         if (index==0 || index == 6)
             return false;
 
-        index = this.tiled.getCell(x/this.tiled.tileWidth, (y - 15)/this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index==0 || index == 6)
-            return false;
-
-        index = this.tiled.getCell((x + 15)/this.tiled.tileWidth, y /this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index==0 || index == 6)
-            return false;
-
-        index = this.tiled.getCell((x - 15) /this.tiled.tileWidth, y/this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index==0 || index == 6)
-            return false;
         return true;
     }
-    // this event is called when character moved
-    function onMove(x, y)
-    {
-        x += this.tiled.viewX;
-        y += this.tiled.viewY;
 
-        var column = x/this.tiled.tileWidth;
-        var row = y/this.tiled.tileHeight;
-        var index = this.tiled.getCell(x/this.tiled.tileWidth, y/this.tiled.tileHeight);
+    function move(x, y)
+    {
+        var index = this.tiled.getCell(x, y);
+
+        this.tiled.setCellDirect(this.row*this.tiled.columns + this.column, 2);
+        this.tiled.setCellDirect(y*this.tiled.columns + x, this.index);
+
+        this._row = y;
+        this._column = x;
+
+        // compute right and bottom boundaries
+        var rightSide = this.tiled.width - System.width;
+        var bottomSide = this.tiled.height - System.height;
+        var oldViewX = this.tiled.viewX;
+        var oldViewY = this.tiled.viewY;
+        // set tiled view
+        this.tiled.viewX = x*this.tiled.tileWidth - System.width/2;
+        this.tiled.viewY = y*this.tiled.tileHeight - System.height/2;
+        // check boundaries
+        this.tiled.viewX = Integer.max(this.tiled.viewX, 0);
+        this.tiled.viewY = Integer.max(this.tiled.viewY, 0);
+        this.tiled.viewX = Integer.min(this.tiled.viewX, rightSide);
+        this.tiled.viewY = Integer.min(this.tiled.viewY, bottomSide);
+
         switch (index) {
             case 7:
                 this.level.add(new Message({text: "A shark ate you!!!", scene : this.level}));
                 break;
+            case 40:
+            case 41:
+            case 42:
+            case 43:
+                this.level.add(new Message({text: "An enemy ate you!!!", scene : this.level}));
+                this.timer.destroy();
+                break;
             case 9:
+                console<<"next\n";
                 this.level.nextLevel();
                 break;
             case 10:
@@ -115,28 +136,5 @@ class Player : Sprite
                 this.level.score += 20;
                 break;
         }
-        // compute right and bottom boundaries
-        var rightSide = this.tiled.width - System.width;
-        var bottomSide = this.tiled.height - System.height;
-        var oldViewX = this.tiled.viewX;
-        var oldViewY = this.tiled.viewY;
-        // set tiled view
-        this.tiled.viewX = x - System.width/2;
-        this.tiled.viewY = y - System.height/2;
-        // check boundaries
-        this.tiled.viewX = Integer.max(this.tiled.viewX, 0);
-        this.tiled.viewY = Integer.max(this.tiled.viewY, 0);
-        this.tiled.viewX = Integer.min(this.tiled.viewX, rightSide);
-        this.tiled.viewY = Integer.min(this.tiled.viewY, bottomSide);
-
-        this.x -= this.tiled.viewX - oldViewX;
-        this.y -= this.tiled.viewY - oldViewY;
-
-        for (var i in this.level.enemies) {
-            i.x -= this.tiled.viewX - oldViewX;
-            i.y -= this.tiled.viewY - oldViewY;
-        }
-
-        this.tiled.setCellDirect(row*this.tiled.columns + column, 2);
     }
 }

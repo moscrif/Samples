@@ -1,55 +1,35 @@
 class AI : Player
 {
-    function init()
+    function this()
     {
-        super.init();
+        super();
 
-        this.image = Bitmap.fromFile("app://enemy.png");
+        this.index = 40;
+    }
+
+    property direction(v)
+    {
+        set {
+            // set draw sequence and move constant on the base direction property
+            switch(v)
+            {
+                case #down:     this.index = 40;    this.moveX = 0;     this.moveY = 1;  break;
+                case #left:     this.index = 42;    this.moveX = -1;    this.moveY = 0;  break;
+                case #right:    this.index = 43;    this.moveX = 1;     this.moveY = 0;  break;
+                case #up:       this.index = 41;    this.moveX = 0;     this.moveY = -1; break;
+                case #stop:     this.moveX = 0;     this.moveY = 0;     break;
+            }
+        }
     }
 
     function canMove(x, y)
     {
-
-        x += this.tiled.viewX;
-        y += this.tiled.viewY;
-
-        var index = this.tiled.getCell(x/this.tiled.tileWidth, (y + 15)/this.tiled.tileHeight);
+        console<<this.tiled<<" tiled\n";
+        var index = this.tiled.getCell(x, y);
         // if index of image is wall, character cant move
-        if (index!=2) {
-            this.direction = #up;
-            return false;
-        }
+        if (index==2)
+            return true;
 
-        index = this.tiled.getCell(x/this.tiled.tileWidth, (y - 15)/this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index!=2) {
-            this.direction = #down;
-            return false;
-        }
-
-        index = this.tiled.getCell((x + 15)/this.tiled.tileWidth, y /this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index!=2) {
-            this.direction = #left;
-            return false;
-        }
-
-        index = this.tiled.getCell((x - 15) /this.tiled.tileWidth, y/this.tiled.tileHeight);
-        // if index of image is wall, character cant move
-        if (index!=2) {
-            this.direction = #right;
-            return false;
-        }
-        return true;
-    }
-    // this event is called when character moved
-    function onMove(x, y)
-    {
-        var dx = x - this.level._player.x;
-        var dy = y - this.level._player.y;
-        var distance = Math.sqrt(dx*dx + dy*dy);
-        if (distance < 50) {
-            this.level.add(new Message({text: "A shark ate you!!!", scene : this.level}));
-        }
+        return false;
     }
 }

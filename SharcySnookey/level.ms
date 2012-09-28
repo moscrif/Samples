@@ -48,10 +48,9 @@ class Level : Scene
         this._player = new Player();
         this._player.tiled = this.tiled;
         // player start position
-        this._player.x = this.playerX;
-        this._player.y = this.playerY;
+        this._player.column = this.playerX;
+        this._player.row = this.playerY;
         this._player.level = this;
-        this.add(this._player);
     }
 
     function pointerReleased()

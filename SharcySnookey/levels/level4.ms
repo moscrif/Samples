@@ -3,8 +3,8 @@ class Level4 : Level
     function init()
     {
         this.tileMap = _4;
-        this.playerX = 60;
-        this.playerY = 21*40/*tile height*/ + 20;
+        this.playerX = 1;
+        this.playerY = 21;
         super.init();
     }
 

@@ -3,8 +3,8 @@ class Level3 : Level
     function init()
     {
         this.tileMap = _3;
-        this.playerX = 60;
-        this.playerY = 5*40/*tile height*/ + 20;
+        this.playerX = 1;
+        this.playerY = 4;
         super.init();
     }
 
@@ -19,21 +19,20 @@ class Level3 : Level
         var ai = new AI();
         ai.direction = #down;
         // place AI
-        ai.x = 15*40+20;
-        ai.y = 3*40;
         ai.level = this;
         ai.tiled = this.tiled;
-        this.add(ai);
-        this.enemies.push(ai);
-        // second
+        ai.column = 10;
+        ai.row = 3;
+
+       /* // second
         ai = new AI();
         ai.direction = #down;
         // place AI
-        ai.x = 15*40+20;
-        ai.y = 15*40;
+        ai.column = 10;
+        ai.row = 15;
         ai.level = this;
         ai.tiled = this.tiled;
         this.add(ai);
-        this.enemies.push(ai);
+        this.enemies.push(ai);*/
    }
 }
