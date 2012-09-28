@@ -23,6 +23,7 @@ class Level : Scene
         this._createPlayer();
         this.enemies = new Array();
         this.createEnemies();
+        this._createControls();
     }
 
     function draw(canvas)
@@ -33,27 +34,6 @@ class Level : Scene
 
         // draw score
         canvas.drawText("score: " + this.score.toString(), System.width / 20, System.height / 20, this._scorePaint);
-    }
-
-    function pointerPressed(x, y)
-    {
-        // call parents pointer pressed function
-        super.pointerPressed(x, y);
-
-        if (y < System.width / 4)
-            this._player.direction= #up;
-        else if (y > 3*System.height / 4)
-            this._player.direction= #down;
-        else if (x > 3*System.width / 4)
-            this._player.direction= #right;
-        else if (x < System.width / 4)
-            this._player.direction= #left;
-    }
-
-    function pointerReleased(x, y)
-    {
-        super.pointerReleased(x, y);
-        this._player.direction = #stop;
     }
 
     function _createPaints()
@@ -72,6 +52,66 @@ class Level : Scene
         this._player.y = this.playerY;
         this._player.level = this;
         this.add(this._player);
+    }
+
+    function pointerReleased()
+    {
+        this._player.direction = #stop;
+    }
+
+    function _createControls()
+    {
+        var scale = System.width*1.0 / 800;
+        var (width, h) = Bitmap.getSize("app://up.png");
+        width *= scale;
+
+        var up = new ImageButton({
+            image   : "app://up.png",
+            x       : System.width - 2*width,
+            y       : System.height - 2*width,
+            scale   : scale
+        });
+        up.pointerPressed = function()
+        {
+            this super._player.direction = #up;
+        }
+        this.add(up);
+
+        var down = new ImageButton({
+            image   : "app://down.png",
+            x       : System.width - 2*width,
+            y       : System.height - width,
+            scale   : scale
+        });
+        down.pointerPressed = function()
+        {
+            this super._player.direction = #down;
+        }
+        this.add(down);
+
+        var left = new ImageButton({
+            image   : "app://left.png",
+            x       : System.width - 3*width,
+            y       : System.height - width - width / 2,
+            scale   : scale
+        });
+        left.pointerPressed = function()
+        {
+            this super._player.direction = #left;
+        }
+        this.add(left);
+
+        var right = new ImageButton({
+            image   : "app://right.png",
+            x       : System.width - width,
+            y       : System.height - width - width / 2,
+            scale   : scale
+        });
+        right.pointerPressed = function()
+        {
+            this super._player.direction = #right;
+        }
+        this.add(right);
     }
 
     // protected

@@ -2,6 +2,7 @@ include "lib://game2d/game.ms"
 include "lib://game2d/scene.ms"
 include "lib://game2d/tiledLayer.ms"
 include "lib://game2d/layer.ms"
+include "lib://game2d/imageButton.ms"
 
 include "app://level.ms"
 include "app://levels/level1.ms"
