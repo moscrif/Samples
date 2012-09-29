@@ -3,7 +3,7 @@ class Level : Scene
     function init()
     {
         this._bg = Bitmap.fromFile("app://bg.png");
-
+        game.paused = false;
         this.tiled = new TiledLayer({
             columns     : 32,
             rows        : 23,

@@ -15,35 +15,32 @@ class Level6 : Level
 
    function createEnemies()
    {
-        // first
+
+        // 1st
         var ai = new AI();
         ai.direction = #up;
         // place AI
-        ai.x = 15*40+20;
-        ai.y = 7*40 + 20;
         ai.level = this;
         ai.tiled = this.tiled;
-        this.add(ai);
-        this.enemies.push(ai);
-        // second
+        ai.column = 15;
+        ai.row = 7;
+
+        // 2nd
         ai = new AI();
         ai.direction = #up;
         // place AI
-        ai.x = 15*40+20;
-        ai.y = 20*40 + 20;
         ai.level = this;
         ai.tiled = this.tiled;
-        this.add(ai);
-        this.enemies.push(ai);
-        // third
+        ai.column = 15;
+        ai.row = 20;
+
+        // 3th
         ai = new AI();
         ai.direction = #right;
         // place AI
-        ai.x = 18*40+20;
-        ai.y = 10*40 + 20;
         ai.level = this;
         ai.tiled = this.tiled;
-        this.add(ai);
-        this.enemies.push(ai);
+        ai.column = 18;
+        ai.row = 10;
     }
 }

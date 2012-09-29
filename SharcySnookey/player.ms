@@ -70,7 +70,6 @@ class Player
 
     function canMove(x, y)
     {
-
         var index = this.tiled.getCell(x, y);
         // if index of image is wall, character cant move
         if (index==0 || index == 6)
@@ -107,15 +106,13 @@ class Player
             case 7:
                 this.level.add(new Message({text: "A shark ate you!!!", scene : this.level}));
                 break;
-            case 40:
-            case 41:
-            case 42:
-            case 43:
+            case 25:
+            case 26:
+            case 27:
+            case 28:
                 this.level.add(new Message({text: "An enemy ate you!!!", scene : this.level}));
-                this.timer.destroy();
                 break;
             case 9:
-                console<<"next\n";
                 this.level.nextLevel();
                 break;
             case 10:

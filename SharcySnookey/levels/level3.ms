@@ -11,6 +11,7 @@ class Level3 : Level
    function nextLevel()
    {
         game.push(new Level4());
+        game.paused = false;
    }
 
    function createEnemies()
@@ -21,18 +22,16 @@ class Level3 : Level
         // place AI
         ai.level = this;
         ai.tiled = this.tiled;
-        ai.column = 10;
-        ai.row = 3;
+        ai.column = 15;
+        ai.row = 2;
 
-       /* // second
+        // first
         ai = new AI();
         ai.direction = #down;
         // place AI
-        ai.column = 10;
-        ai.row = 15;
         ai.level = this;
         ai.tiled = this.tiled;
-        this.add(ai);
-        this.enemies.push(ai);*/
+        ai.column = 15;
+        ai.row = 13;
    }
 }

@@ -21,6 +21,7 @@ var game = new Game();
 
 game.onStart = function()
 {
+    this.paused = false;
     this.push(new Level1());
 }
 
