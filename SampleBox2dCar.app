@@ -6,5 +6,4 @@
        homepage: 
            uses: core ui sqlite game2d box2d graphics
     orientation: landscape left
- remote-console: 
         version: 1.0

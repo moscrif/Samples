@@ -7,17 +7,18 @@ class GameScene : PhysicsScene
         // create physics world
         this.world = new b2World(0.0, -9.8, true, false);
         this.world.setContinuousPhysics(false);
-       
+
         this.width = 2*System.width;
         this._translateX = 0;
         this._translateY = 0;
         this._x = 0;
 
+        // create car
         this._car = new Car();
         this._car.create(this, System.width / 2, 1* System.height / 10);
-
+        // allow debug drawing
+        this.debugDraw = true;
         this._createGround();
-        //this.debugDraw = true;
 
         this.menu = new Menu({
             width       : System.width,
@@ -107,7 +108,7 @@ class GameScene : PhysicsScene
         rightStop.setPosition(width*ground.width, System.height / 2);
 
         var rect = Bitmap.fromFile("app://rect.png");
-        var scale = System.height / 400.0;
+        var scale = System.height / 600.0;
         var body;
         for (var i = 0; i < 80 + rand(20); i++) {
             body = this.addPolygonBody(rect, #dynamic, 1.0, 1.0, 0.0, rect.width * scale, rect.height * scale);

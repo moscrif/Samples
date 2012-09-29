@@ -5,7 +5,6 @@ class Car
         this._images = {
             wheel   : Bitmap.fromFile("app://wheel.png"),
             body    : Bitmap.fromFile("app://car.png"),
-          //  damper  : Bitmap.fromFile("app://damper.png"),
         }
         this._scale = 1;//System.width / 500.0;
         this._speedStep = Math.PI / 2;
@@ -26,13 +25,7 @@ class Car
 
         var bodyWidth = this._scale * this._images.body.width;
         var bodyHeight = this._scale * this._images.body.height;
-        // create bodies:
-       /* var shape = new Array(
-            {x:-150,y:54},
-            {x:150,y:54},
-            {x:150,y:-54},
-            {x:-150,y:-54}
-        );*/
+        // create shassie
         var shape = [
             {x:122,y:7},
             {x:11,y:51},
@@ -43,30 +36,7 @@ class Car
             {x:140,y:-50},
             {x :150,y:-21}
        ]
-       /* /*{x :300,y:75},
-            {x:290,y:104},
-            {x:81,y:108},
-            {x:0,y:94},
-            {x:13,y:58},
-            {x:102,y:4},
-            {x:161,y:3},
-            {x:272,y:47}*/
-      /* var shape = new Array(
-            {x : bodyWidth / -2, y : bodyHeight / -2},
-            {x : 4*bodyWidth / 10,  y : bodyHeight / -2},
-            {x : bodyWidth / 2,  y : bodyHeight / -4},
-            {x : 12*bodyWidth / 30, y : 0},
-            {x : 8*bodyWidth / 30, y : bodyHeight / 5},
-            {x : bodyWidth / 6, y : bodyHeight / 3},
-            {x : bodyWidth / -15, y : bodyHeight / 2},
-            {x : 4*bodyWidth / -10, y : 0}
-        );*/
-       /* var shape = new Array(
-            {x:-150,y:54},
-            {x:150,y:54},
-            {x:150,y:-54},
-            {x:-150,y:-54}
-        );*/
+
         this._body = scene.addPolygonBody(this._images.body, #dynamic, 0.1, 0.0, 0.0, shape);//this._images.body.width, this._images.body.height);
         this._body.z = 2;
         this._body.scale = this._scale;
