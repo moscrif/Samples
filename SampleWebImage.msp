@@ -14,7 +14,11 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" />
+<<<<<<< HEAD
         <property name="bundleIdentifier" value="com.moscrif.samplewebimage" />
+=======
+        <property name="bundleIdentifier" value="com.Moscrif.SampleWebimage" />
+>>>>>>> Updated WebImage Sample.
       </publishProperties>
       <includes>
         <fonts>
@@ -34,7 +38,11 @@
         <property name="installLocation" value="preferExternal" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;" />
+<<<<<<< HEAD
         <property name="bundleIdentifier" value="com.moscrif.samplewebimage" />
+=======
+        <property name="bundleIdentifier" value="com.Moscrif.SampleWebimage" />
+>>>>>>> Updated WebImage Sample.
       </publishProperties>
       <includes>
         <fonts>
@@ -47,7 +55,7 @@
       <publishProperties>
         <property name="icon" />
         <property name="splash" />
-        <property name="codeSigningIdentity" value="iPhone Developer: Mothiva s.r.o (6NNJ6SAK8V)" />
+        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (ENR9MZF3YM)" />
         <property name="supportedDevices" value="universal" />
         <property name="icon3gs" value="" />
         <property name="icon4+" value="" />
@@ -55,7 +63,11 @@
         <property name="splash3gs" value="" />
         <property name="splash4+" value="" />
         <property name="splashTablet" value="" />
+<<<<<<< HEAD
         <property name="bundleIdentifier" value="com.mothiva.webimage" />
+=======
+        <property name="bundleIdentifier" value="com.mothiva.webImage" />
+>>>>>>> Updated WebImage Sample.
         <property name="iPhone4-icon" value="" />
         <property name="iPhone4-splash" value="" />
         <property name="iPhone5-icon" value="" />
