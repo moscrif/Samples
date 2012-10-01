@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="game" projectOutput="$(workspace_dir)\output" facebookAppID="" projectArtefact="SharcySnookey_$(Platform)_$(Resolution)" appFile=".\SharcySnookey.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" projectArtefact="HelloUI_$(Platform)_$(Resolution)" appFile=".\SampleHelloUI.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
   <fileProperties />
@@ -13,14 +13,13 @@
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
-        <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SharcySnookey" />
+        <property name="permission" />
       </publishProperties>
       <includes>
         <fonts>
           <string>freesans-r.ttf</string>
         </fonts>
-        <skin name="" theme="" />
+        <skin name="metro" theme="blue" />
       </includes>
     </device>
     <device targetPlatform="150">
@@ -31,23 +30,22 @@
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
+        <property name="installLocation" value="preferExternal" />
         <property name="supportedDevices" value="universal" />
-        <property name="installLocation" value="internalOnly" />
-        <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SharcySnookey" />
+        <property name="permission" />
       </publishProperties>
       <includes>
         <fonts>
           <string>freesans-r.ttf</string>
         </fonts>
-        <skin name="" theme="" />
+        <skin name="metro" theme="blue" />
       </includes>
     </device>
     <device targetPlatform="300">
       <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (6KCC35DH5Y)" />
+        <property name="icon" />
+        <property name="splash" />
+        <property name="codeSigningIdentity" value="iPhone Developer: Mothiva s.r.o (6NNJ6SAK8V)" />
         <property name="supportedDevices" value="universal" />
         <property name="icon3gs" value="" />
         <property name="icon4+" value="" />
@@ -55,21 +53,13 @@
         <property name="splash3gs" value="" />
         <property name="splash4+" value="" />
         <property name="splashTablet" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SharcySnookey" />
-        <property name="iPhone4-icon" value="" />
-        <property name="iPhone4-splash" value="" />
-        <property name="iPhone5-icon" value="" />
-        <property name="iPhone5-splash" value="" />
-        <property name="iPad-icon" value="" />
-        <property name="iPad-splash" value="" />
-        <property name="newiPad-icon" value="" />
-        <property name="newiPad-splash" value="" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.HelloUI" />
       </publishProperties>
       <includes>
         <fonts>
           <string>freesans-r.ttf</string>
         </fonts>
-        <skin name="" theme="" />
+        <skin name="metro" theme="blue" />
       </includes>
     </device>
     <device targetPlatform="200">
@@ -82,6 +72,30 @@
         <fonts>
           <string>freesans-r.ttf</string>
         </fonts>
+        <skin name="metro" theme="blue" />
+      </includes>
+    </device>
+    <device targetPlatform="450">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="applicationId" value="" />
+        <property name="certificate" value="" />
+        <property name="key" value="" />
+        <property name="password" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="520">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -95,72 +109,7 @@
         <fonts>
           <string>freesans-r.ttf</string>
         </fonts>
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="450">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-        <property name="applicationId" value="" />
-        <property name="certificate" value="" />
-        <property name="key" value="" />
-        <property name="password" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="520">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="203">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-        <property name="manifest" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="600">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="700">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
-        <skin name="" theme="" />
+        <skin name="metro" theme="blue" />
       </includes>
     </device>
   </devices>
