@@ -14,7 +14,7 @@
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.Moscrif.Breakout" />
+        <property name="bundleIdentifier" value="com.moscrif.breakout" />
       </publishProperties>
       <includes>
         <fonts />
@@ -79,14 +79,14 @@
         <property name="splash4+" value="" />
         <property name="splashTablet" value="" />
         <property name="bundleIdentifier" value="com.moscrif.breakout" />
-        <property name="iPhone4-icon" value="$(project_dir)/platforms/icons/Icon-114.png" />
-        <property name="iPhone4-splash" value="$(project_dir)/platforms/splashes/splash-iphone4(s).png" />
+        <property name="iPhone4-icon" value="" />
+        <property name="iPhone4-splash" value="" />
         <property name="iPhone5-icon" value="" />
         <property name="iPhone5-splash" value="" />
-        <property name="iPad-icon" value="$(project_dir)/platforms/icons/Icon-72.png" />
-        <property name="iPad-splash" value="$(project_dir)/platforms/splashes/splash-ipad2(s).png" />
+        <property name="iPad-icon" value="/Users/oxy/Work/moscrif-samples/DemoBreakout/platforms/icons/Icon-72.png" />
+        <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
-        <property name="newiPad-splash" value="&lt;none&gt;" />
+        <property name="newiPad-splash" value="" />
       </publishProperties>
       <includes>
         <fonts />
@@ -103,8 +103,8 @@
         <property name="storepassword" value="" />
         <property name="installLocation" value="preferExternal" />
         <property name="supportedDevices" value="universal" />
-        <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.Moscrif.Breakout" />
+        <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
+        <property name="bundleIdentifier" value="com.moscrif.breakout" />
       </publishProperties>
       <includes>
         <fonts />

@@ -244,7 +244,7 @@ class GameScene : PhysicsScene
     }
 
     function endContact(contact)
-    {console<<"endCOntact\n";
+    {
         // if the ball do not exists the contact is irrelevant - do nothing
         if (!this._ball) return;
         var current = contact;
