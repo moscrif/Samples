@@ -18,7 +18,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>TutorialFacebook/font.ttf</string>
+          <string>freesans-r.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>
@@ -27,7 +27,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.facebook" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -38,7 +38,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>TutorialFacebook\font.ttf</string>
+          <string>freesans-r.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>
@@ -60,9 +60,7 @@
         <property name="bundleIdentifier" value="com.moscrif.templates.gamewithmenu" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>TutorialFacebook/font.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>

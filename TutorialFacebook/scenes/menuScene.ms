@@ -16,7 +16,6 @@ class MenuScene : Scene
         this._logInOut = new TextButton({text:"Log IN", x:System.width/2, y:3*System.height / 10});
         this._logInOut.onClick = function() {
             console<<"klik\n";
-            SFX.playClick();
             this super._playLogInOut();
         }
         this.add(this._logInOut);
@@ -43,6 +42,7 @@ class MenuScene : Scene
     {
         this.login = false;
         // login events
+        console<<"seted callbacks\n";
         facebook.onLogin = function()
         {
             console<<"on login\n";

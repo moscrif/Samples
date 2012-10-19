@@ -26,6 +26,25 @@ class TutorialFacebook : Game
             System.messageBox("Could not create a facebook client!!");
             return;
         }
+        facebook.onLogin = function()
+        {
+            console<<"on login\n";
+            /*var self = this super;
+
+            self.login = true;
+            self._logInOut.text = "Logout";
+            self.message = "Logged in";*/
+        }
+        facebook.onLoginFailed = function(status)
+        {
+            console<<"on login failed "<<status<<"\n";
+           /* var self = this super;
+
+            self.login = false;
+            self._logInOut.text = "Login";
+            self.message = "Login failed!";*/
+        }
+        console<<"seted callbacks\n";
 
         // add menu scene
         this.push(new MenuScene());
