@@ -1,11 +1,13 @@
 include "lib://core/log.ms"
 include "lib://game2d/game.ms"
 include "app://gfx.ms"
-include "app://scenes/gameScene.ms"
+include "app://sfx.ms"
+include "app://scenes/menuScene.ms"
 
 // custom game class
-class TutorialTiledLayer : Game
+class SampleBallons : Game
 {
+
     function start()
     {
         super.start();
@@ -13,8 +15,11 @@ class TutorialTiledLayer : Game
         // load graphical resources
         GFX.load();
 
-        // push game scene
-        this.push(new GameScene());
+        // load sound and musics
+        SFX.load();
+
+        // add menu scene
+        this.push(new MenuScene());
     }
 
     function draw(canvas)
@@ -25,7 +30,8 @@ class TutorialTiledLayer : Game
         // default drawings
         super.draw(canvas);
     }
+
 }
 
 // create instace and run the game
-new TutorialTiledLayer().run(true);
+new SampleBallons().run();

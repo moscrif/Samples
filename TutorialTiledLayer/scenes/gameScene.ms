@@ -76,7 +76,7 @@ class GameScene : Scene
         var data = parseData(file);
         // close file
         file.close();
-
+    
         // create tiled layer
         var tiled = new TiledLayer({
             columns     : data["width"],
@@ -86,13 +86,29 @@ class GameScene : Scene
             tileHeight  : data["tileheight"],
             margin      : data["tilesets"][0]["margin"]
         });
+        
     
         // fill cells
         var cells = data["layers"][0]["data"];
         for (var i = 0; i < cells.length; i++) {
             tiled.setCellDirect(i, cells[i] - 1);
         }
-
+    
+        // set animated layer
+        // create a fisrt animated layer. It's index is -1
+        var index = tiled.createAnimatedTile(0);
+        tiled.setAnimatedTile(index, 3);
+        // animate tile
+        var t = new Timer(100, true);
+        t.onTick = function()
+        {
+            if(tiled.getAnimatedTile(index) == 3)
+                tiled.setAnimatedTile(index, 0);
+            else
+                tiled.setAnimatedTile(index, tiled.getAnimatedTile(index)+1);
+        }
+        t.start(100);
+    
         // return created layer
         return tiled;
     }

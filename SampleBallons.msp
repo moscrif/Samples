@@ -1,18 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="TutorialTiledLayer_$(Platform)_$(Resolution)" appFile="./TutorialTiledLayer.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="GameWithMenu_$(Platform)_$(Resolution)" appFile="./SampleBallons.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
-  <fileProperties>
-    <property path=".\TutorialTiledLayer\main.ms" isDirectory="false" excluded="false">
-      <conditions />
-    </property>
-  </fileProperties>
+  <fileProperties />
   <devices>
     <device targetPlatform="100">
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialtiledlayer" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.GameWithMenu" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -22,7 +18,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>freesans-r.ttf</string>
+          <string>SampleBallons/font.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>
@@ -31,7 +27,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialtiledlayer" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.GameWithMenu" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -42,7 +38,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>freesans-r.ttf</string>
+          <string>SampleBallons/font.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>
@@ -61,10 +57,12 @@
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialtiledlayer" />
+        <property name="bundleIdentifier" value="com.moscrif.templates.gamewithmenu" />
       </publishProperties>
       <includes>
-        <fonts />
+        <fonts>
+          <string>SampleBallons/font.ttf</string>
+        </fonts>
         <skin name="" theme="" />
       </includes>
     </device>

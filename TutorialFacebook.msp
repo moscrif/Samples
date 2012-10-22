@@ -2,7 +2,11 @@
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="Facebook_$(Platform)_$(Resolution)" appFile="./TutorialFacebook.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
-  <fileProperties />
+  <fileProperties>
+    <property path=".\TutorialFacebook\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+  </fileProperties>
   <devices>
     <device targetPlatform="100">
       <publishProperties>

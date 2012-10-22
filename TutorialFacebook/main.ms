@@ -6,6 +6,33 @@ include "app://scenes/menuScene.ms"
 
 var facebook = null;
 
+
+function fromValue(value)
+    {
+        var result = "";
+        switch (typeof(value)) {
+        case #array:
+            result += "[";
+            for (var i = 0; i < value.length; i++)
+                result += fromValue(value[i]) + ", ";
+            result = result.substring(0, result.length - 2) + "]";
+            break;
+        case #object:
+            for (var item in value)/* {*/
+                result = item + " = " + fromValue(value.propertyAt(item)) + ", " + result;
+
+            result = "{" + result.substring(0, result.length - 2) + "}";
+            break;
+        case #Bitmap:
+            result = "Bitmap (" + value.width + ", " + value.height + ") (" + typeof(value) + ")";
+            break;
+        default:
+            result += value + " (" + typeof(value) + ")";
+        }
+        console<<"facebook says: "<<result<<"\n";
+        System.messageBox(result);
+    }
+
 // custom game class
 class TutorialFacebook : Game
 {
@@ -13,7 +40,6 @@ class TutorialFacebook : Game
     function start()
     {
         super.start();
-
         // load graphical resources
         GFX.load();
 
@@ -21,25 +47,27 @@ class TutorialFacebook : Game
         SFX.load();
 
         // get acces to the facebook
-        facebook = new Facebook("123953091087655", ["offline_access", "status_update", "read_stream", "publish_stream"]);
+        facebook = new Facebook("123953091087655", ["offline_access", "status_update", "read_stream", "publish_stream", "publish_actions"]);
         if(!facebook) {
             System.messageBox("Could not create a facebook client!!");
             return;
         }
         facebook.onLogin = function()
         {
-            console<<"on login\n";
+            System.messageBox("login");
             /*var self = this super;
-
+        
             self.login = true;
             self._logInOut.text = "Logout";
             self.message = "Logged in";*/
         }
         facebook.onLoginFailed = function(status)
         {
+
+            System.messageBox("login failure");
             console<<"on login failed "<<status<<"\n";
            /* var self = this super;
-
+        
             self.login = false;
             self._logInOut.text = "Login";
             self.message = "Login failed!";*/
@@ -61,6 +89,7 @@ class TutorialFacebook : Game
 
     function keyPressed()
     {
+    console<<"keyPred\n";
         this.quit();
     }
 

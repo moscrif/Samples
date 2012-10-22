@@ -1,8 +1,8 @@
 include "lib://game2d/textButton.ms"
 include "lib://game2d/sceneTransitions/slideToTop.ms"
 include "lib://game2d/sceneTransitions/slideToBottom.ms"
-include "app://scenes/singlePlayerScene.ms"
-include "app://scenes/multiPlayerScene.ms"
+include "app://scenes/requestScene.ms"
+include "app://scenes/dialogScene.ms"
 
 class MenuScene : Scene
 {
@@ -13,6 +13,9 @@ class MenuScene : Scene
         this.message = new Label({text : "Logged out", x : System.width / 2, y : System.height / 10});
         this.add(this.message);
 
+        // set login and logout callbacks
+        this._setCallbacks();
+
         this._logInOut = new TextButton({text:"Log IN", x:System.width/2, y:3*System.height / 10});
         this._logInOut.onClick = function() {
             console<<"klik\n";
@@ -20,29 +23,24 @@ class MenuScene : Scene
         }
         this.add(this._logInOut);
 
-        // set login and logout callbacks
-        this._setCallbacks();
-
-        this._singlePlayer = new TextButton({text:"Single Player", x:System.width/2, y:System.height/10*8});
-        this._singlePlayer.onClick = function() {
-            SFX.playClick();
-            this super._playSinglePlayer();
+        var dialogScene = new TextButton({text:"dialogs", x:System.width/2, y:System.height/10*4});
+        dialogScene.onClick = function() {
+            Game.instance.push(new DialogScene(), new SlideToTop());
         }
-        this.add(this._singlePlayer);
+        this.add(dialogScene);
 
-        this._multiPlayer = new TextButton({text:"Multi Player", x:System.width/2, y:System.height/10*9});
-        this._multiPlayer.onClick = function() {
-            SFX.playClick();
-            this super._playMultiPlayer();
+        var requestScene = new TextButton({text:"request", x:System.width/2, y:System.height/10*5});
+        requestScene.onClick = function() {
+            Game.instance.push(new RequestScene(), new SlideToTop());
         }
-        this.add(this._multiPlayer);
+        this.add(requestScene);
     }
 
     function _setCallbacks()
     {
         this.login = false;
         // login events
-        console<<"seted callbacks\n";
+       /* console<<"seted callbacks\n";
         facebook.onLogin = function()
         {
             console<<"on login\n";
@@ -60,9 +58,9 @@ class MenuScene : Scene
             self.login = false;
             self._logInOut.text = "Login";
             self.message = "Login failed!";
-        }
+        }*/
         // logout events
-        facebook.onLogout = function()
+       /* facebook.onLogout = function()
         {
             console<<"on logout\n";
             var self = this super;
@@ -79,7 +77,7 @@ class MenuScene : Scene
             self.login = true;
             self._logInOut.text = "Logout";
             self.message = "Logout failed!";
-        }
+        }*/
     }
 
     function _playLogInOut()
@@ -92,15 +90,5 @@ class MenuScene : Scene
             facebook.logout();
             console<<"log out\n";
         }
-    }
-
-    function _playSinglePlayer()
-    {
-        Game.instance.push(new SinglePlayerScene(), new SlideToTop());
-    }
-
-    function _playMultiPlayer()
-    {
-        Game.instance.push(new MultiPlayerScene(), new SlideToTop());
     }
 }
