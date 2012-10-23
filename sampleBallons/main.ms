@@ -1,5 +1,6 @@
 include "lib://core/log.ms"
 include "lib://game2d/game.ms"
+include "lib://box2d/physicsScene.ms"
 include "app://gfx.ms"
 include "app://sfx.ms"
 include "app://scenes/menuScene.ms"
@@ -7,7 +8,6 @@ include "app://scenes/menuScene.ms"
 // custom game class
 class SampleBallons : Game
 {
-
     function start()
     {
         super.start();

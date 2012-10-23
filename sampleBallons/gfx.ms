@@ -8,6 +8,9 @@ class GFX
     var background;
     var disk;
     var grass;
+    var ballon;
+    var ball;
+    var canon;
 
     function load()
     {
@@ -15,5 +18,8 @@ class GFX
         disk = Bitmap.fromFile(root + "disk.png");
         grass = Bitmap.fromFile(root + "grass.png");
         grass = grass.resize(System.width, System.height / 5);
+        ballon = Bitmap.fromFile(root + "ballon.png");
+        canon = Bitmap.fromFile(root + "canon.png");
+        ball = Bitmap.fromFile(root + "ball.png");
     }
 }
