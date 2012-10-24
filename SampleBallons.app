@@ -1,5 +1,5 @@
            main: main.ms
-          title: Game With Menu Scene
+          title: Sample fire a ballon
     description: 
          author: Moscrif
       copyright: 

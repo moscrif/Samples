@@ -6,6 +6,7 @@ class LoseDialog : Layer
     {
         super.init();
 
+        // add rext to the layer
         this.add(new Label({
             text    : "You have lost the game!!!",
             color   : 0xffffffff,
@@ -25,6 +26,7 @@ class LoseDialog : Layer
 
     function draw(canvas)
     {
+        // draw background
         canvas.clear(0xff000000);
 
         super.draw(canvas);

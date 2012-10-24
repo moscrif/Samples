@@ -31,6 +31,14 @@ class SampleBallons : Game
         super.draw(canvas);
     }
 
+    function onKeyPressed(keyCode)
+    {
+        if (keyCode == #back || keyCode == #home) {
+            logI("Quit");
+            MyGame.quit();
+        }
+    }
+
 }
 
 // create instace and run the game

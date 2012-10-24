@@ -1,8 +1,7 @@
 include "lib://game2d/textButton.ms"
 include "lib://game2d/sceneTransitions/slideToTop.ms"
 include "lib://game2d/sceneTransitions/slideToBottom.ms"
-include "app://scenes/singlePlayerScene.ms"/*
-include "app://scenes/multiPlayerScene.ms"*/
+include "app://scenes/singlePlayerScene.ms"
 
 class MenuScene : Scene
 {
@@ -16,23 +15,10 @@ class MenuScene : Scene
             this super._playSinglePlayer();
         }
         this.add(this._singlePlayer);
-
-       /*this._multiPlayer = new TextButton({text:"High score", x:System.width/2, y:System.height/10*9});
-        this._multiPlayer.onClick = function() {
-            SFX.playClick();
-            this super._playMultiPlayer();
-        }
-        this.add(this._multiPlayer);*/
     }
 
     function _playSinglePlayer()
     {
         Game.instance.push(new SinglePlayerScene(), new SlideToTop());
     }
-
-    /*function _playMultiPlayer()
-    {
-        Game.instance.push(new MultiPlayerScene(), new SlideToTop());
-    }*/
-
 }
