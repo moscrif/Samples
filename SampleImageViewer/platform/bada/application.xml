@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application>
+  <Entry>Moscrif</Entry>
+  <Name>
+    <English>eShop</English>
+  </Name>
+  <Vendor>Mothiva, s.r.o.</Vendor>
+  <Description>www.mothiva.com</Description>
+  <Icons>
+    <MainMenu>
+      Icon.png
+      <Type1>Icon.png</Type1>
+      <Type2 />
+    </MainMenu>
+    <Setting />
+    <Ticker />
+    <QuickPanel />
+    <LaunchImage>
+      Splash.png
+      <Type1>Splash.png</Type1>
+      <Type2 />
+    </LaunchImage>
+  </Icons>
+  <AutoScaling>
+    <Enabled>false</Enabled>
+  </AutoScaling>
+  <ConsentNotice>
+    <FirstLaunch>0</FirstLaunch>
+    <EveryLaunch>0</EveryLaunch>
+  </ConsentNotice>
+</Application>

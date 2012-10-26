@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="game" projectOutput="$(workspace_dir)\output" facebookAppID="" projectArtefact="SampleImageViewer_$(Platform)_$(Resolution)" appFile=".\SampleImageViewer.app">
+  <conditionDefines />
+  <NewSkin>true</NewSkin>
+  <fileProperties>
+    <property path=".\ImageViewer\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\SampleImageViewer\imgs" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\SampleImageViewer\platform" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\SampleImageViewer\imgs\img00.jpg" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+  </fileProperties>
+  <devices>
+    <device targetPlatform="100">
+      <publishProperties>
+        <property name="icon" value="$(project_dir)\platform\android\icon.png" />
+        <property name="keystore" value="" />
+        <property name="storepassword" value="" />
+        <property name="alias" value="" />
+        <property name="keypassword" value="" />
+        <property name="splash" value="$(project_dir)\platform\android\splash.png" />
+        <property name="supportedDevices" value="universal" />
+        <property name="permission" />
+        <property name="bundleIdentifier" value="com.moscrif.sampleimageviewer" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="450">
+      <publishProperties>
+        <property name="applicationId" value="0xA000C5C1" />
+        <property name="icon" value="$(project_dir)\platform\symbian\icon.svg" />
+        <property name="certificate" value="" />
+        <property name="key" value="" />
+        <property name="password" value="" />
+        <property name="splash" value="$(project_dir)\platform\symbian\splash.png" />
+      </publishProperties>
+      <includes>
+        <fonts>
+          <string>SegoeWP-Light.ttf</string>
+        </fonts>
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="200">
+      <publishProperties>
+        <property name="manifest" value="" />
+        <property name="applicationFile" value="$(project_dir)\.platforms\bada\application.xml" />
+        <property name="splash" value="" />
+        <property name="icon" value="" />
+        <property name="icon1" value="" />
+        <property name="splash1" value="" />
+        <property name="icon2" value="" />
+        <property name="splash2" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="520">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="$(project_dir)\.platforms\wm\splash.png" />
+      </publishProperties>
+      <includes>
+        <fonts>
+          <string>SegoeWP-Light.ttf</string>
+        </fonts>
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="300">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="codeSigningIdentity" value="" />
+        <property name="supportedDevices" value="universal" />
+        <property name="icon3gs" value="" />
+        <property name="icon4+" value="" />
+        <property name="iconTablet" value="" />
+        <property name="splash3gs" value="" />
+        <property name="splash4+" value="" />
+        <property name="splashTablet" value="" />
+        <property name="bundleIdentifier" value="com.moscrif.imageviewer" />
+        <property name="iPhone4-icon" value="" />
+        <property name="iPhone4-splash" value="" />
+        <property name="iPhone5-icon" value="" />
+        <property name="iPhone5-splash" value="" />
+        <property name="iPad-icon" value="" />
+        <property name="iPad-splash" value="" />
+        <property name="newiPad-icon" value="" />
+        <property name="newiPad-splash" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="150">
+      <publishProperties>
+        <property name="icon" value="$(project_dir)\platform\android\icon.png" />
+        <property name="splash" value="$(project_dir)\platform\android\splash.png" />
+        <property name="alias" value="" />
+        <property name="keystore" value="" />
+        <property name="keypassword" value="" />
+        <property name="storepassword" value="" />
+        <property name="installLocation" value="internalOnly" />
+        <property name="supportedDevices" value="universal" />
+        <property name="permission" />
+        <property name="bundleIdentifier" value="com.moscrif.sampleimageviewer" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="201">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="manifest" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="203">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="manifest" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="600">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="700">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+  </devices>
+</Project>
