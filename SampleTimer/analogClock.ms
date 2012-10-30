@@ -19,7 +19,7 @@ class AnalogClock : Layer
     {
         super.draw(canvas);
 
-        this.drawNumbers(canvas);
+        this.drawClockFace(canvas);
 
         canvas.save();
         canvas.translate(this._clockX, this._clockY);
@@ -50,7 +50,7 @@ class AnalogClock : Layer
         this._hourAngle = (t.hour%12)*1.0 / 12 * 360 /* whole part*/ + (t.minute * 1.0 / 60)*30/*minute part for smoth run*/;
     }
 
-    function drawNumbers(canvas)
+    function drawClockFace(canvas)
     {
         canvas.save();
         canvas.translate(this._clockX, this._clockY);

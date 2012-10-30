@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="GameWithMenu_$(Platform)_$(Resolution)" appFile=".\SampleBlockPuzzle.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="SampleNeverEndingBackground_$(Platform)_$(Resolution)" appFile="./SampleNeverEndingBackground.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
   <fileProperties />
@@ -8,7 +8,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.sampleneverendingbackground" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -17,9 +17,7 @@
         <property name="permission" value="" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freemono-i.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -27,7 +25,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.sampleneverendingbackground" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -37,9 +35,7 @@
         <property name="permission" value="" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -57,7 +53,7 @@
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
-        <property name="bundleIdentifier" value="com.moscrif.templates.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.sampleneverendingbackground" />
       </publishProperties>
       <includes>
         <fonts />

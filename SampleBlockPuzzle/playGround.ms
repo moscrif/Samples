@@ -17,8 +17,10 @@ class PlayGround : TiledLayer
         this._block = null;
 
         this._generateBlock();
+        this.move();
 
-
+        this._dragged = false;
+        this._lastX = -1;
     }
 
     function _generateBlock()
@@ -26,17 +28,21 @@ class PlayGround : TiledLayer
         this._block = new Block();
         this._block.playground = this;
         this._block.step();
-        this.move();
     }
 
     function move()
     {
-        this._timer = new Timer(500, true)
+        this._timer = new Timer(300, true)
         this._timer.onTick = function()
         {
-            this super._block.step();
+            if (!this super._block.step())
+                this super._generateBlock();
         }
-        this._timer.start(500);
+        this._timer.start(300);
+    }
+
+    function checkRow()
+    {
     }
 
     property block(v)

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="GameWithMenu_$(Platform)_$(Resolution)" appFile=".\SampleBlockPuzzle.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)\output" facebookAppID="" projectArtefact="SampleHelloWorldApplication_$(Platform)_$(Resolution)" appFile=".\SampleHelloWorldApplication.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
   <fileProperties />
@@ -8,7 +8,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.samplehelloworldapplication" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -18,7 +18,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>freemono-i.ttf</string>
+          <string>freemono-r.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>
@@ -27,7 +27,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.samplehelloworldapplication" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -38,16 +38,16 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>freesans-r.ttf</string>
+          <string>freemono-r.ttf</string>
         </fonts>
-        <skin name="" theme="" />
+        <skin name="metro" theme="blue" />
       </includes>
     </device>
     <device targetPlatform="300">
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (ENR9MZF3YM)" />
+        <property name="codeSigningIdentity" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="iPhone4-icon" value="" />
         <property name="iPhone4-splash" value="" />
@@ -57,7 +57,7 @@
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
-        <property name="bundleIdentifier" value="com.moscrif.templates.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.samplehelloworldapplication" />
       </publishProperties>
       <includes>
         <fonts />
@@ -97,7 +97,7 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
+        <skin />
       </includes>
     </device>
     <device targetPlatform="520">
@@ -107,7 +107,7 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
+        <skin />
       </includes>
     </device>
     <device targetPlatform="203">
@@ -118,7 +118,7 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
+        <skin />
       </includes>
     </device>
     <device targetPlatform="600">
@@ -128,7 +128,7 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
+        <skin />
       </includes>
     </device>
     <device targetPlatform="700">
@@ -138,7 +138,7 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
+        <skin />
       </includes>
     </device>
   </devices>

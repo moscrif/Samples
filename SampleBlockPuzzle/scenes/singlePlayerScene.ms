@@ -16,6 +16,34 @@ class SinglePlayerScene : Scene
             margin      : 0,
         });
         this.add(this.playGround);
+
+        this._lastX = -1;
+        this._dragged = false;
+    }
+
+    function pointerPressed(x, y)
+    {console<<"pressed\n";
+        this._lastX = x;
+        console<<"last x"<<this._lastX<<"\n";
+        this._dragged = false;
+    }
+
+    function pointerDragged(x, y)
+    {
+        var gap = (x - this._lastX) / this.playGround.tileWidth;
+
+        if (gap != 0) {
+            this.playGround.block.move(gap);
+            this._dragged = true;
+            this._lastX = x;
+        }
+    }
+
+    function pointerReleased(x, y)
+    {
+        if (!this._dragged && this.playGround.block)
+            this.playGround.block.changePosition();
+        this._dragged = false;
     }
 
     function _goBack()
@@ -23,10 +51,6 @@ class SinglePlayerScene : Scene
         Game.instance.pop(new SlideToBottom());
     }
 
-    function pointerPressed()
-    {
-        console<<"pressed\n";
-        this.playGround.block.changePosition();
-    }
+    
 
 }
