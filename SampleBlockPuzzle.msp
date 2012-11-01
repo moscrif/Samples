@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="GameWithMenu_$(Platform)_$(Resolution)" appFile=".\SampleBlockPuzzle.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="SampleBlockPuzzle_$(Platform)_$(Resolution)" appFile=".\SampleBlockPuzzle.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
   <fileProperties />
@@ -27,7 +27,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.sampleblockpuzzle" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -38,7 +38,7 @@
       </publishProperties>
       <includes>
         <fonts>
-          <string>freesans-r.ttf</string>
+          <string>Ubuntu-R.ttf</string>
         </fonts>
         <skin name="" theme="" />
       </includes>

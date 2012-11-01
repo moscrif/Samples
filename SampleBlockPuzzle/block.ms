@@ -4,7 +4,7 @@ class Block
     {
         //@region blocks definition
         this._blocks = [
-            // first block
+            // @region first block
             [
                 // first position
                 [
@@ -14,7 +14,8 @@ class Block
                     [1, 1],
                 ]
             ],
-            // second block
+            // @endregion
+            // @region second block
             [
                 // first position
                 [
@@ -33,19 +34,116 @@ class Block
                     [1, 1, 1, 1],
                 ],
             ],
+            // @endregion
+            // @region third block
+            [
+                // first position
+                [
+                    // first row
+                    [1, 1, 1],
+                    // second row
+                    [1, 0, 0],
+                ],
+                // second position
+                [
+                    // first row
+                    [1, 0],
+                    // second row
+                    [1, 0],
+                    // third row
+                    [1, 1],
+                ],
+                // third position
+                [
+                    // first row
+                    [0, 0, 1],
+                    // second row
+                    [1, 1, 1],
+                ],
+                // fourth position
+                [
+                    // first row
+                    [1, 1],
+                    // second row
+                    [0, 1],
+                    // third row
+                    [0, 1],
+                ],
+            ],
+            // @endregion
+            // @region fourth block
+            [
+                // first position
+                [
+                    // first row
+                    [0, 1, 0],
+                    // second row
+                    [1, 1, 1],
+                ],
+                // second position
+                [
+                    // first row
+                    [1, 0],
+                    // second row
+                    [1, 1],
+                    // third row
+                    [1, 0],
+                ],
+                // third position
+                [
+                    // first row
+                    [1, 1, 1],
+                    // second row
+                    [0, 1, 0],
+                ],
+                // fourth position
+                [
+                    // first row
+                    [0, 1],
+                    // second row
+                    [1, 1],
+                    // third row
+                    [0, 1],
+                ],
+            ],
+            // @endregion
+            // @region fifth block
+            [
+                // first position
+                [
+                    // first row
+                    [0, 1, 1],
+                    // second row
+                    [1, 1, 0],
+                ],
+                // second position
+                [
+                    // first row
+                    [1, 0],
+                    // second row
+                    [1, 1],
+                    // third row
+                    [0, 1],
+                ],
+            ],
+            // @endregion
         ];
         // @endregion
-        this._block = 1;
+        this._block = rand(5);
         this._position = 0;
         this._newPosition = 0;
 
         this.top = 0;
+        
+
         this._playground = null;
         this.color = rand(5) + 1;
-        this.left = 0;//8 - this._blocks[this._block][0][0].length / 2;
+        this.left = 8 - this._blocks[this._block][0][0].length / 2;
         this._newLeft = -1;
 
-
+        this._availablePositions = new Array();
+        for (var i = 0; i < this._blocks[this._block].length; i++)
+            this._availablePositions.push(true);
     }
 
     function step()
@@ -85,30 +183,72 @@ class Block
         return true;
     }
 
+    function canChangePosition()
+    {
+        var gap = this._newLeft - this.left;
+
+        for (var i = 0; i < this._blocks[this._block][this._newPosition].length; i++)
+            for (var q = 0; q < this._blocks[this._block][this._newPosition][i].length; q++) {
+                // is is a sqare on the place
+                if (this._blocks[this._block][this._newPosition][i][q] == 1) {
+                    // is not there any other block on under the new position oxfmmn.lf
+
+                    if (this.playground.getCell(this._newLeft + q, this.top + i) != 0)
+                        // if there was an old position over it
+                        if (i < this._blocks[this._block][this._position].length && (q + gap) > -1 && (q + gap) < this._blocks[this._block][this._position][i].length) {
+                            if (!(this._blocks[this._block][this._position][i][q + gap]))
+                                return false;
+                        } else  // otherwise it can be only from other block
+                            return false;
+                }
+            }
+        return true;
+    }
+
     function changePosition()
     {
+        var l = this._newLeft;
+        var p = this._newPosition;
         if (this._position < this._blocks[this._block].length - 1)
             this._newPosition = this._position + 1;
         else
             this._newPosition = 0;
+
         this._newLeft = this.left + (this._blocks[this._block][this._position][0].length - this._blocks[this._block][this._newPosition][0].length)/2
-        this.redrawBlock(false);
+
+        var width = this._blocks[this._block][this._newPosition][0].length;
+        if (this._newLeft < 0)
+            this._newLeft = 0;
+        else if (this._newLeft > this.playground.columns - width)
+            this._newLeft = this.playground.columns - width;
+
+        if (!this.canChangePosition()) {
+            this._newPosition = p;
+            this._newLeft = l;
+        } else
+            this.redrawBlock(false);
     }
 
     function canStep()
     {
-        var top = this.top + this._blocks[this._block][this._position].length;
-        if (top > this.playground.rows - 1)
+        var top = this.top; // + this._blocks[this._block][this._position].length;
+        if (top + this._blocks[this._block][this._position].length > this.playground.rows - 1)
             return false;
 
         top = this.top + 1;
 
-        var height = this._blocks[this._block][this._position].length-1;
+        var height = this._blocks[this._block][this._position].length;//-1;
 
-        for (var q = 0; q < this._blocks[this._block][this._position][height].length; q++) {
-            if (this._blocks[this._block][this._position][height][q] == 1 && this.playground.getCell(this.left + q, top+height) != 0)
-                return false;
-        }
+        for (var i = 0; i < height; i++)
+            for (var q = 0; q < this._blocks[this._block][this._position][i].length; q++) {
+                if (this._blocks[this._block][this._position][i][q] == 1 && this.playground.getCell(this.left + q, top+i) != 0) {
+                    if (i < height - 1) {
+                        if (this._blocks[this._block][this._position][i + 1][q] != 1)
+                            return false;
+                    } else
+                        return false;
+                }
+            }
         return true;
     }
 
@@ -116,7 +256,6 @@ class Block
     {
         var width = this._blocks[this._block][this._position][0].length;
         if (dir == #left) {
-            console<<"check L \n";
             if (this.left < 1)
                 return false;
             for (var q = 0; q < this._blocks[this._block][this._position].length; q++) {

@@ -1,5 +1,5 @@
            main: main.ms
-          title: Game With Menu Scene
+          title: SampleBlockPuzzle
     description: 
          author: Moscrif
       copyright: 

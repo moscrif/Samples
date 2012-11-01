@@ -21,7 +21,23 @@ class PlayGround : TiledLayer
 
         this._dragged = false;
         this._lastX = -1;
+
+        this._paint = new Paint();
+        this._paint.color = 0xffffffff;
+        this._paint.textSize = System.height / 20;
+
+        this.score = 0;
+        this.gameOver = false;
+        this._scene = 0;
     }
+
+    function draw(canvas)
+    {
+        super.draw(canvas);
+
+        canvas.drawText("score: " + this.score, this.x - (this.columns * this.tileWidth) / 2 , System.height / 15, this._paint);
+    }
+
 
     function _generateBlock()
     {
@@ -32,23 +48,75 @@ class PlayGround : TiledLayer
 
     function move()
     {
-        this._timer = new Timer(300, true)
+        this._timer = new Timer(200, true)
         this._timer.onTick = function()
         {
-            if (!this super._block.step())
+            if (this super.gameOver)
+                return;
+
+            if (!this super._block.step()) {
+                if (this super._block.top < 2) {
+                    this super.gameOver = true;
+                    this super.scene.add(this super.scene.gameOver);
+                    this super.scene.gameOver.score = this super.score;
+                }
+                this super.checkRow();
                 this super._generateBlock();
+            }
         }
-        this._timer.start(300);
+        this._timer.start(200);
     }
 
     function checkRow()
     {
+        for (var i = this.rows-1; i > 0; i--) {
+            for (var q = 0; q < this.columns; q++) {
+                // a gab between blocks
+                if (this.getCell(q, i) == 0)
+                    break;
+                if (q == this.columns - 1) {
+                    this.removeLine(i);
+                    i=i-1;
+                }
+            }
+        }
+    }
+
+    function removeLine(r)
+    {
+        for (var i = r; i > 0; i--)
+            for (var q = 0; q < this.columns; q++)
+                this.setCell(q, i, this.getCell(q, i-1));
+        this.score += 1;
+    }
+
+    function fastMove()
+    {
+        if (!this._block.step()) {
+            if (this._block.top < 2) {
+                this.gameOver = true;
+            }
+            this.checkRow();
+            this._generateBlock();
+        }
     }
 
     property block(v)
     {
         get return this._block;
-        set console<<"try to set get only property!!\n";
+        set ;// get only property
+    }
+
+    function restart()
+    {
+        this._block = null;
+        for (var i = 0; i < this.rows; i++)
+            for (var q = 0; q < this.columns; q++)
+                this.setCell(q, i, 0);
+
+        this._generateBlock();
+
+        this.gameOver = false;
     }
 }
 

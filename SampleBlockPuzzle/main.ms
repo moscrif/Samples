@@ -2,7 +2,7 @@ include "lib://core/log.ms"
 include "lib://game2d/game.ms"
 include "app://gfx.ms"
 include "app://sfx.ms"
-include "app://scenes/menuScene.ms"
+include "app://scenes/singlePlayerScene.ms"
 
 // custom game class
 class SampleTetris : Game
@@ -19,7 +19,7 @@ class SampleTetris : Game
         SFX.load();
 
         // add menu scene
-        this.push(new MenuScene());
+        this.push(new SinglePlayerScene());
     }
 
     function draw(canvas)
@@ -31,6 +31,12 @@ class SampleTetris : Game
         super.draw(canvas);
     }
 
+    function onKeyPressed(keyCode)
+    {
+        if (keyCode == #back || keyCode == #home) {
+            this.quit();
+        }
+    }
 }
 
 // create instace and run the game
