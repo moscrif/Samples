@@ -34,7 +34,7 @@ class SampleTetris : Game
     function onKeyPressed(keyCode)
     {
         if (keyCode == #back || keyCode == #home) {
-            this.quit();
+            SampleTetris.quit();
         }
     }
 }
