@@ -6,7 +6,7 @@ class Block
         this._blocks = [
             // @region first block
             [
-                // first position
+                // first state
                 [
                     // first row
                     [1, 1],
@@ -17,7 +17,7 @@ class Block
             // @endregion
             // @region second block
             [
-                // first position
+                // first state
                 [
                     // first row
                     [1],
@@ -28,7 +28,7 @@ class Block
                     // fourth row
                     [1],
                 ],
-                // second position
+                // second state
                 [
                     // first row
                     [1, 1, 1, 1],
@@ -37,14 +37,14 @@ class Block
             // @endregion
             // @region third block
             [
-                // first position
+                // first state
                 [
                     // first row
                     [1, 1, 1],
                     // second row
                     [1, 0, 0],
                 ],
-                // second position
+                // second state
                 [
                     // first row
                     [1, 0],
@@ -53,14 +53,14 @@ class Block
                     // third row
                     [1, 1],
                 ],
-                // third position
+                // third state
                 [
                     // first row
                     [0, 0, 1],
                     // second row
                     [1, 1, 1],
                 ],
-                // fourth position
+                // fourth state
                 [
                     // first row
                     [1, 1],
@@ -73,14 +73,14 @@ class Block
             // @endregion
             // @region fourth block
             [
-                // first position
+                // first state
                 [
                     // first row
                     [0, 1, 0],
                     // second row
                     [1, 1, 1],
                 ],
-                // second position
+                // second state
                 [
                     // first row
                     [1, 0],
@@ -89,14 +89,14 @@ class Block
                     // third row
                     [1, 0],
                 ],
-                // third position
+                // third state
                 [
                     // first row
                     [1, 1, 1],
                     // second row
                     [0, 1, 0],
                 ],
-                // fourth position
+                // fourth state
                 [
                     // first row
                     [0, 1],
@@ -109,14 +109,14 @@ class Block
             // @endregion
             // @region fifth block
             [
-                // first position
+                // first state
                 [
                     // first row
                     [0, 1, 1],
                     // second row
                     [1, 1, 0],
                 ],
-                // second position
+                // second state
                 [
                     // first row
                     [1, 0],
@@ -127,23 +127,75 @@ class Block
                 ],
             ],
             // @endregion
+            // @region sixth block
+            [
+                // first state
+                [
+                    // first row
+                    [1, 1, 0],
+                    // second row
+                    [0, 1, 1],
+                ],
+                // second state
+                [
+                    // first row
+                    [0, 1],
+                    // second row
+                    [1, 1],
+                    // third row
+                    [1, 0],
+                ],
+            ],
+            // @endregion
+            // @region seventh block
+            [
+                // first state
+                [
+                    // first row
+                    [1, 1, 1],
+                    // second row
+                    [0, 0, 1],
+                ],
+                // second state
+                [
+                    // first row
+                    [1, 1],
+                    // second row
+                    [1, 0],
+                    // third row
+                    [1, 0],
+                ],
+                // third state
+                [
+                    // first row
+                    [1, 0, 0],
+                    // second row
+                    [1, 1, 1],
+                ],
+                // fourth state
+                [
+                    // first row
+                    [0, 1],
+                    // second row
+                    [0, 1],
+                    // third row
+                    [1, 1],
+                ],
+            ],
         ];
         // @endregion
-        this._block = rand(5);
-        this._position = 0;
-        this._newPosition = 0;
-
-        this.top = 0;
-        
-
-        this._playground = null;
+        // generate random block
+        this._block = rand(7);
+        // first state
+        this._state = 0;
+        this._newState = 0;
+        // random block state
         this.color = rand(5) + 1;
+        this.top = 0;
         this.left = 8 - this._blocks[this._block][0][0].length / 2;
         this._newLeft = -1;
-
-        this._availablePositions = new Array();
-        for (var i = 0; i < this._blocks[this._block].length; i++)
-            this._availablePositions.push(true);
+        // parents playground
+        this._playground = null;
     }
 
     function step()
@@ -158,45 +210,47 @@ class Block
     {
         if (!this.canStep())
             return false;
-
-        for (var i = 0; i < this._blocks[this._block][this._position].length; i++)
-            for (var q = 0; q < this._blocks[this._block][this._position][i].length; q++) {
-                if (this._blocks[this._block][this._position][i][q])
+        // set all tiles of curently moving block to the frst frame (no color)
+        for (var i = 0; i < this._blocks[this._block][this._state].length; i++)
+            for (var q = 0; q < this._blocks[this._block][this._state][i].length; q++) {
+                if (this._blocks[this._block][this._state][i][q])
                     this.playground.setCell(this.left + q, this.top + i, 0);
             }
-
-        this._position = this._newPosition;
+    
+        // update block state
+        this._state = this._newState;
         if (this._newLeft != -1)
             this.left = this._newLeft;
-
+    
         this._newLeft = -1;
-
+    
         if (step)
             this.top += 1;
-
-        for (var i = 0; i < this._blocks[this._block][this._position].length; i++)
-            for (var q = 0; q < this._blocks[this._block][this._position][i].length; q++) {
-                if (this._blocks[this._block][this._position][i][q])
+    
+        // set all tiles to the new of block state
+        for (var i = 0; i < this._blocks[this._block][this._state].length; i++)
+            for (var q = 0; q < this._blocks[this._block][this._state][i].length; q++) {
+                if (this._blocks[this._block][this._state][i][q])
                     this.playground.setCell(this.left + q, this.top + i, this.color);
-
+    
             }
         return true;
     }
 
-    function canChangePosition()
+    function canChangeState()
     {
         var gap = this._newLeft - this.left;
-
-        for (var i = 0; i < this._blocks[this._block][this._newPosition].length; i++)
-            for (var q = 0; q < this._blocks[this._block][this._newPosition][i].length; q++) {
+    
+        for (var i = 0; i < this._blocks[this._block][this._newState].length; i++)
+            for (var q = 0; q < this._blocks[this._block][this._newState][i].length; q++) {
                 // is is a sqare on the place
-                if (this._blocks[this._block][this._newPosition][i][q] == 1) {
-                    // is not there any other block on under the new position oxfmmn.lf
-
+                if (this._blocks[this._block][this._newState][i][q] == 1) {
+                    // is not there any other block on under the new state oxfmmn.lf
+    
                     if (this.playground.getCell(this._newLeft + q, this.top + i) != 0)
-                        // if there was an old position over it
-                        if (i < this._blocks[this._block][this._position].length && (q + gap) > -1 && (q + gap) < this._blocks[this._block][this._position][i].length) {
-                            if (!(this._blocks[this._block][this._position][i][q + gap]))
+                        // if there was an old state over it
+                        if (i < this._blocks[this._block][this._state].length && (q + gap) > -1 && (q + gap) < this._blocks[this._block][this._state][i].length) {
+                            if (!(this._blocks[this._block][this._state][i][q + gap]))
                                 return false;
                         } else  // otherwise it can be only from other block
                             return false;
@@ -205,25 +259,27 @@ class Block
         return true;
     }
 
-    function changePosition()
+    function changeState()
     {
+        // current left position and state (rotation)
         var l = this._newLeft;
-        var p = this._newPosition;
-        if (this._position < this._blocks[this._block].length - 1)
-            this._newPosition = this._position + 1;
+        var p = this._newState;
+        // move to next state
+        if (this._state < this._blocks[this._block].length - 1)
+            this._newState = this._state + 1;
         else
-            this._newPosition = 0;
+            this._newState = 0;
+        // calculate new left position
+        this._newLeft = this.left + (this._blocks[this._block][this._state][0].length - this._blocks[this._block][this._newState][0].length)/2
 
-        this._newLeft = this.left + (this._blocks[this._block][this._position][0].length - this._blocks[this._block][this._newPosition][0].length)/2
-
-        var width = this._blocks[this._block][this._newPosition][0].length;
+        var width = this._blocks[this._block][this._newState][0].length;
         if (this._newLeft < 0)
             this._newLeft = 0;
         else if (this._newLeft > this.playground.columns - width)
             this._newLeft = this.playground.columns - width;
 
-        if (!this.canChangePosition()) {
-            this._newPosition = p;
+        if (!this.canChangeState()) {
+            this._newState = p;
             this._newLeft = l;
         } else
             this.redrawBlock(false);
@@ -231,19 +287,27 @@ class Block
 
     function canStep()
     {
-        var top = this.top; // + this._blocks[this._block][this._position].length;
-        if (top + this._blocks[this._block][this._position].length > this.playground.rows - 1)
+        var top = this.top;
+        // if the block is on the bottom of the screen
+        if (top + this._blocks[this._block][this._state].length > this.playground.rows - 1)
             return false;
-
+    
+        // move one row down
         top = this.top + 1;
-
-        var height = this._blocks[this._block][this._position].length;//-1;
-
+    
+        // number of rows in the block map
+        var height = this._blocks[this._block][this._state].length;
+    
+        // go throw all rows in the map
         for (var i = 0; i < height; i++)
-            for (var q = 0; q < this._blocks[this._block][this._position][i].length; q++) {
-                if (this._blocks[this._block][this._position][i][q] == 1 && this.playground.getCell(this.left + q, top+i) != 0) {
+            // go throw all columns in tbe block map
+            for (var q = 0; q < this._blocks[this._block][this._state][i].length; q++) {
+                // if there is on in the map and is no free space on the playground
+                if (this._blocks[this._block][this._state][i][q] == 1 && this.playground.getCell(this.left + q, top+i) != 0) {
                     if (i < height - 1) {
-                        if (this._blocks[this._block][this._position][i + 1][q] != 1)
+                        // and there is some other block (no curently moved)
+                        if (this._blocks[this._block][this._state][i + 1][q] != 1)
+                            // stop moving
                             return false;
                     } else
                         return false;
@@ -254,19 +318,19 @@ class Block
 
     function canMove(dir)
     {
-        var width = this._blocks[this._block][this._position][0].length;
+        var width = this._blocks[this._block][this._state][0].length;
         if (dir == #left) {
             if (this.left < 1)
                 return false;
-            for (var q = 0; q < this._blocks[this._block][this._position].length; q++) {
-                if (this._blocks[this._block][this._position][q][0] == 1 && this.playground.getCell(this.left-1, this.top+q) != 0)
+            for (var q = 0; q < this._blocks[this._block][this._state].length; q++) {
+                if (this._blocks[this._block][this._state][q][0] == 1 && this.playground.getCell(this.left-1, this.top+q) != 0)
                     return false;
             }
         } else {
             if (this.left > this._playground.columns - width)
                 return false;
-            for (var q = 0; q < this._blocks[this._block][this._position].length; q++) {
-                if (this._blocks[this._block][this._position][q][width-1] == 1 && this.playground.getCell(this.left+width, this.top+q) != 0)
+            for (var q = 0; q < this._blocks[this._block][this._state].length; q++) {
+                if (this._blocks[this._block][this._state][q][width-1] == 1 && this.playground.getCell(this.left+width, this.top+q) != 0)
                     return false;
             }
         }
@@ -284,7 +348,7 @@ class Block
         }
 
         this._newLeft = this.left + gap;
-        var columns = this._blocks[this._block][this._position][0].length;
+        var columns = this._blocks[this._block][this._state][0].length;
 
         if (this._newLeft < 1)
             this._newLeft = 0;

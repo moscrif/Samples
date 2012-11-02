@@ -7,7 +7,6 @@ include "app://scenes/singlePlayerScene.ms"
 // custom game class
 class SampleTetris : Game
 {
-
     function start()
     {
         super.start();
@@ -31,13 +30,16 @@ class SampleTetris : Game
         super.draw(canvas);
     }
 
-    function onKeyPressed(keyCode)
-    {
-        if (keyCode == #back || keyCode == #home) {
-            SampleTetris.quit();
-        }
-    }
+
 }
 
+var game = new SampleTetris();
+
+game.onKeyPressed = function(keyCode)
+{console<<"klik\n";
+    if (keyCode == #back || keyCode == #home) {
+        this.quit();
+    }
+}
 // create instace and run the game
-new SampleTetris().run();
+game.run();

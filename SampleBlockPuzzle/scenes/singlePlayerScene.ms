@@ -42,16 +42,16 @@ class SinglePlayerScene : Scene
     {
         if (this.playGround.gameOver)
             return;
-
+    
         var gapX = (x - this._lastX) / this.playGround.tileWidth;
         var gapY = (y - this._lastY) / this.playGround.tileHeight;
-
+    
         if (gapX != 0) {
             this.playGround.block.move(gapX / Math.abs(gapX));
             this._dragged = true;
             this._lastX = x;
         }
-
+    
         if (gapY > 0) {
             this.playGround.fastMove();
             this._dragged = true;
@@ -65,7 +65,7 @@ class SinglePlayerScene : Scene
             return;
 
         if (!this._dragged && this.playGround.block)
-            this.playGround.block.changePosition();
+            this.playGround.block.changeState();
         this._dragged = false;
     }
 

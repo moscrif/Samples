@@ -14,9 +14,9 @@ class SinglePlayerScene : PhysicsScene
     function init()
     {
         super.init();
-
+    
         this.start = System.tick;
-
+    
         this.world = new b2World(0.0, -9.81, true, true);
 
         // if user tap the screen - true
