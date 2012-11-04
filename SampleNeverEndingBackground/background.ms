@@ -8,13 +8,27 @@ class Background : Layer
         super.init();
         this._minGap = 25;
         this._maxGap = 100;
-        this._speed = 2;
+        this._speed = 4;
 
         this._lastX = 0;
         while (this._lastX < System.width) {
             this._lastX += rand(this._maxGap) + this._minGap;
             this.add(new Star({x : this._lastX, y : rand(System.height) + 10, speed : this._speed}));
         }
+        this._addStar();
+    }
+
+    function _addStar()
+    {
+        var distance = this._minGap + rand(this._maxGap - this._minGap);
+        this._lastX += distance;
+        var t = new Timer(1, 1);
+        t.onTick = function()
+        {
+            this super.add(new Star({x : this super._lastX, y : rand(System.height) + 10, speed : this super._speed}));
+            this super._addStar();
+        }
+        t.start(((distance) / (this._speed*20.0/1000)).toInteger())
     }
 
     function draw(canvas)
