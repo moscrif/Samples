@@ -17,6 +17,13 @@ class SampleNeverEndingBackground : Game
         // additional initialization code goes here
         this.push(new GameScene());
     }
+
+    function keyPressed(key)
+    {
+        if (key == #back || key == #home) {
+            this.quit();
+        }
+    }
 }
 
 // create instace and run the game
