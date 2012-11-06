@@ -30,7 +30,7 @@ class BannerScene : Scene
 
     function _goBack()
     {
-        Game.instance.pop(new SlideToBottom());
+        Game.instance.quit();
     }
 
 }
