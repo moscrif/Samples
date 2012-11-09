@@ -14,7 +14,7 @@ class SinglePlayerScene : PhysicsScene
     function init()
     {
         super.init();
-    
+
         this.start = System.tick;
     
         this.world = new b2World(0.0, -9.81, true, true);
@@ -29,6 +29,8 @@ class SinglePlayerScene : PhysicsScene
         this._canFire = true;
         // the time between first two ballons
         this._time = 1500;
+        this._score = 0;
+        this._leaderborad = new Leaderboard();
         // bodies to be destroyd in the next process method
         this._bodiesToDestroy = new Array();
         // has the game ended?
@@ -53,6 +55,7 @@ class SinglePlayerScene : PhysicsScene
         super.pointerPressed(x, y);
 
         if(this._ended) {
+            this._leaderborad.insert(this._score);
             this._goBack();
             return;
         }
@@ -160,10 +163,12 @@ class SinglePlayerScene : PhysicsScene
             if (bodyA.id == #ball && bodyB.id == #ballon) {
                 // destoy ballon
                 this._bodiesToDestroy.push(bodyB);
+                this._score += 1;
             // check if a ballon was hit
             } else if(bodyB.id == #ball && bodyA.id == #ballon) {
                 // destoy ballon
                 this._bodiesToDestroy.push(bodyA);
+                this._score += 1;
             // check if something hit the border (only ball can)
             } else if(bodyB.id == #border) {
                 this._bodiesToDestroy.push(bodyA);
@@ -182,7 +187,7 @@ class SinglePlayerScene : PhysicsScene
     {
         // destroy all bodies
         this._bodiesToDestroy.push(body);
-        this.add(new LoseDialog());
+        this.add(new LoseDialog({score : this._score}));
         this._ended = true;
     }
     // @endregion

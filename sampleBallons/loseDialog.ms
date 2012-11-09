@@ -8,20 +8,29 @@ class LoseDialog : Layer
 
         // add rext to the layer
         this.add(new Label({
-            text    : "You have lost the game!!!",
+            text    : "Score:",
             color   : 0xffffffff,
             x       : System.width / 2,
             y       : System.height / 4,
             z       : 2,
             textSize    : System.width / 20
         }));
+        // add rext to the layer
+        this._scoreLabel = new Label({
+            text    : "",
+            color   : 0xffffffff,
+            x       : System.width / 2,
+            y       : System.height / 2,
+            z       : 2,
+            textSize    : System.width / 20
+        });
+        this.add(this._scoreLabel);
+    }
 
-        this._back = new TextButton({text:"Back", x:System.width/2, y:3*System.height/4, frameWidth : 100, frameHeight : 100});
-        this._back.onClick = function() {
-            console<<"llik\n";
-            this super._goBack();
-        }
-        this.add(this._back);
+    property score(v)
+    {
+        get console<<"get only\n";
+        set this._scoreLabel.text = v.toString();
     }
 
     function draw(canvas)

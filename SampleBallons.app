@@ -4,7 +4,7 @@
          author: Moscrif
       copyright: 
        homepage: 
-           uses: core ui graphics media game2d box2d
+           uses: ui graphics media game2d box2d  sqlite core
     orientation: landscape left
  remote-console: 
         version: 1.0
