@@ -1,29 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="Facebook_$(Platform)_$(Resolution)" appFile="./TutorialFacebook.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="TutorialSprites_$(Platform)_$(Resolution)" appFile="./TutorialSprites.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
-  <fileProperties>
-    <property path=".\TutorialFacebook\main.ms" isDirectory="false" excluded="false">
-      <conditions />
-    </property>
-  </fileProperties>
+  <fileProperties />
   <devices>
     <device targetPlatform="100">
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialsprites" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
-        <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
+        <property name="permission" value="" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -31,19 +25,17 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.generatedbymoscrifide.facebook" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialsprites" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
-        <property name="installLocation" value="internalOnly" />
-        <property name="permission" value="&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;&#xA;&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;" />
+        <property name="installLocation" value="preferExternal" />
+        <property name="permission" value="" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -51,7 +43,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="codeSigningIdentity" value="" />
+        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (ENR9MZF3YM)" />
         <property name="supportedDevices" value="universal" />
         <property name="iPhone4-icon" value="" />
         <property name="iPhone4-splash" value="" />
@@ -61,7 +53,7 @@
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
-        <property name="bundleIdentifier" value="com.moscrif.templates.gamewithmenu" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialsprites" />
       </publishProperties>
       <includes>
         <fonts />
