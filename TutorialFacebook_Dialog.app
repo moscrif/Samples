@@ -6,5 +6,5 @@
        homepage: 
            uses: core ui graphics media game2d net
     orientation: portrait
- remote-console: 192.168.2.3:4321
+ remote-console: 
         version: 1.0

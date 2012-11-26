@@ -49,13 +49,16 @@
     <property path=".\TutorialScenes\options.ms" isDirectory="false" excluded="false">
       <conditions />
     </property>
+    <property path=".\TutorialScenes\gfx.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
   </fileProperties>
   <devices>
     <device targetPlatform="100">
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.TutorialScenes" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialscenes" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -74,7 +77,7 @@
       <publishProperties>
         <property name="icon" value="" />
         <property name="splash" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.TutorialScenes" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialscenes" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
@@ -104,7 +107,7 @@
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
-        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.TutorialScenes" />
+        <property name="bundleIdentifier" value="com.generatedbymoscrifide.tutorialscenes" />
       </publishProperties>
       <includes>
         <fonts>

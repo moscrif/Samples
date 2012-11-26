@@ -2,8 +2,12 @@
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="game" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="FacebookDialog_$(Platform)_$(Resolution)" appFile=".\TutorialFacebook_Dialog.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
+  <publishTyp>0</publishTyp>
   <fileProperties>
     <property path=".\TutorialFacebook_Dialog\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\TutorialFacebook_Dialog\scenes\dialogScene.ms" isDirectory="false" excluded="false">
       <conditions />
     </property>
   </fileProperties>

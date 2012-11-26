@@ -20,7 +20,7 @@ class TutorialFacebook : Game
         SFX.load();
 
         // get acces to the facebook
-        facebook = new Facebook("123953091087655", ["offline_access", "status_update", "read_stream", "publish_stream", "publish_actions"]);
+        facebook = new Facebook("YOUR OWN APP ID", ["offline_access", "status_update", "read_stream", "publish_stream", "publish_actions"]);
         if(!facebook) {
             System.messageBox("Could not create a facebook client!!");
             return;
