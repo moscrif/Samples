@@ -1,96 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="game" projectOutput="$(workspace_dir)\output" facebookAppID="" projectArtefact="DemoPuzzle_$(Platform)_$(Resolution)" appFile=".\DemoPuzzle.app">
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="SampleThread_$(Platform)_$(Resolution)" appFile="./SampleThread.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
   <publishTyp>0</publishTyp>
   <fileProperties>
-    <property path="./Puzzle/main.ms" isDirectory="false" excluded="false">
+    <property path=".\SampleThread\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\SampleThread\thread1.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\SampleThread\gfx.ms" isDirectory="false" excluded="false">
       <conditions />
     </property>
   </fileProperties>
   <devices>
     <device targetPlatform="100">
       <publishProperties>
-        <property name="icon" value="$(project_dir)\platforms\icons\Icon-114.png" />
+        <property name="icon" value="" />
         <property name="splash" value="" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SampleThread" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
         <property name="supportedDevices" value="universal" />
         <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.moscrif.puzzle" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
     <device targetPlatform="150">
       <publishProperties>
-        <property name="icon" value="$(project_dir)\platforms\icons\Icon-114.png" />
+        <property name="icon" value="" />
         <property name="splash" value="" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SampleThread" />
         <property name="alias" value="" />
         <property name="keystore" value="" />
         <property name="keypassword" value="" />
         <property name="storepassword" value="" />
-        <property name="installLocation" value="preferExternal" />
         <property name="supportedDevices" value="universal" />
+        <property name="installLocation" value="internalOnly" />
         <property name="permission" value="" />
-        <property name="bundleIdentifier" value="com.moscrif.puzzle" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
     <device targetPlatform="300">
       <publishProperties>
-        <property name="icon" />
-        <property name="splash" />
-        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (6KCC35DH5Y)" />
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="codeSigningIdentity" value="iPhone Developer: Jozef Pridavok (ENR9MZF3YM)" />
         <property name="supportedDevices" value="universal" />
-        <property name="icon3gs" value="" />
-        <property name="icon4+" value="$(project_dir)\platforms\icons\Icon-114.png" />
-        <property name="iconTablet" value="$(project_dir)\platforms\icons\Icon-72.png" />
-        <property name="splash3gs" value="" />
-        <property name="splash4+" value="" />
-        <property name="splashTablet" value="" />
-        <property name="bundleIdentifier" value="com.mothiva.puzzle" />
         <property name="iPhone4-icon" value="" />
         <property name="iPhone4-splash" value="" />
         <property name="iPhone5-icon" value="" />
         <property name="iPhone5-splash" value="" />
-        <property name="iPad-icon" value="/Users/oxy/Work/moscrif-samples/DemoPuzzle/platforms/icons/Icon-72.png" />
+        <property name="iPad-icon" value="" />
         <property name="iPad-splash" value="" />
         <property name="newiPad-icon" value="" />
         <property name="newiPad-splash" value="" />
+        <property name="bundleIdentifier" value="com.GeneratedbyMoscrifIde.SampleThread" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
     <device targetPlatform="200">
       <publishProperties>
-        <property name="icon1" value="" />
-        <property name="splash1" value="" />
-        <property name="icon2" value="" />
-        <property name="splash2" value="" />
-        <property name="manifest" value="" />
         <property name="icon" value="" />
         <property name="splash" value="" />
+        <property name="manifest" value="" />
       </publishProperties>
       <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
+        <fonts />
+        <skin name="" theme="" />
+      </includes>
+    </device>
+    <device targetPlatform="201">
+      <publishProperties>
+        <property name="icon" value="" />
+        <property name="splash" value="" />
+        <property name="manifest" value="" />
+      </publishProperties>
+      <includes>
+        <fonts />
         <skin name="" theme="" />
       </includes>
     </device>
@@ -115,19 +114,6 @@
       </publishProperties>
       <includes>
         <fonts />
-        <skin name="" theme="" />
-      </includes>
-    </device>
-    <device targetPlatform="201">
-      <publishProperties>
-        <property name="icon" value="" />
-        <property name="splash" value="" />
-        <property name="manifest" value="" />
-      </publishProperties>
-      <includes>
-        <fonts>
-          <string>freesans-r.ttf</string>
-        </fonts>
         <skin name="" theme="" />
       </includes>
     </device>

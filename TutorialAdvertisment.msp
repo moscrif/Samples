@@ -2,7 +2,18 @@
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)/output" facebookAppID="" projectArtefact="TutorialAdvertisment_$(Platform)_$(Resolution)" appFile=".\TutorialAdvertisment.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
-  <fileProperties />
+  <publishTyp>0</publishTyp>
+  <fileProperties>
+    <property path=".\TutorialAdvertisment\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\TutorialAdvertisment\gfx.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+    <property path=".\TutorialAdvertisment\scenes\bannerScene.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+  </fileProperties>
   <devices>
     <device targetPlatform="100">
       <publishProperties>

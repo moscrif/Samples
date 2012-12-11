@@ -2,7 +2,12 @@
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" includeAllResolution="false" applicationType="application" projectOutput="$(workspace_dir)\output" facebookAppID="" projectArtefact="SampleWebImage_$(Platform)_$(Resolution)" appFile=".\SampleWebImage.app">
   <conditionDefines />
   <NewSkin>true</NewSkin>
-  <fileProperties />
+  <publishTyp>0</publishTyp>
+  <fileProperties>
+    <property path=".\SampleWebImage\main.ms" isDirectory="false" excluded="false">
+      <conditions />
+    </property>
+  </fileProperties>
   <devices>
     <device targetPlatform="100">
       <publishProperties>
